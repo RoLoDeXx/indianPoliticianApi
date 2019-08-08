@@ -2,7 +2,7 @@ const express = require("express");
 const politicsData = require("../files/data.json");
 const Politician = require("../models/politiciansModel");
 const router = new express.Router();
-router.post("/politicans", (req, res) => {
+router.post("/politicians", (req, res) => {
   res.status(200).send(politicsData);
 
   politicsData.forEach(element => {
@@ -13,8 +13,8 @@ router.post("/politicans", (req, res) => {
   });
 });
 
-//add data by politican name
-router.post("/politicans/add", async (req, res) => {
+//add data by politician name
+router.post("/politicians/add", async (req, res) => {
   const politicsArr = new Politician(req.body);
 
   try {
@@ -24,18 +24,31 @@ router.post("/politicans/add", async (req, res) => {
     res.status(400).send(e);
   }
 });
-
-router.get("/politicans/:name", async (req, res) => {
+router.get("/politicians/byname/:name", async (req, res) => {
   const name = req.params.name;
   try {
-    const politican = await Politician.findOne({
-      name
+    const politician = await Politician.findOne({
+      name: name.charAt(0).toUpperCase() + name.slice(1)
     });
-    res.status(200).send(politican);
-  } catch (error) {}
+    res.status(200).send(politician);
+  } catch (error) {
+    res.send(400).send("No such politician found");
+  }
 });
 
 //get data by district name
-routers.get;
+router.get("/politicians/byarea/:area", async (req, res) => {
+  const area = req.params.area;
+
+  try {
+    const politician = await Politician.findOne({
+      area: area.toUpperCase()
+    });
+    if (politician) return res.status(200).send(politician);
+    else return res.status(200).send("Be precise when you're naming area");
+  } catch (error) {
+    res.send(400).send("No such politician found");
+  }
+});
 
 module.exports = router;
