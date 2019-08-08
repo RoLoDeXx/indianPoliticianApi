@@ -51,4 +51,8 @@ router.get("/politicians/byarea/:area", async (req, res) => {
   }
 });
 
+//search by party
+
+//search nearby
+
 module.exports = router;
