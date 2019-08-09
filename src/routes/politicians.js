@@ -27,9 +27,9 @@ router.post("/politicians/add", async (req, res) => {
     res.status(400).send(e);
   }
 });
-router.get("/politicians/search/:area", searchBy, async (req, res) => {});
+router.get("/politicians/name/:name", searchBy, async (req, res) => {});
 
-router.get("/politicians/search/:name", searchBy, async (req, res) => {});
+router.get("/politicians/area/:area", searchBy, async (req, res) => {});
 
 // router.get("/politicians/");
 
