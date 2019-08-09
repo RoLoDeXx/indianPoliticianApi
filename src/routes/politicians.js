@@ -44,6 +44,9 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
       name: candidateB
     });
 
+    if (politicianA === null || politicianB === null)
+      return res.status(404).send("Politicians not found");
+
     res
       .send({
         politicianA,
