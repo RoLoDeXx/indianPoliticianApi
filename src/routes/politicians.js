@@ -31,6 +31,28 @@ router.get("/politicians/name/:name", searchBy, async (req, res) => {});
 
 router.get("/politicians/area/:area", searchBy, async (req, res) => {});
 
-// router.get("/politicians/");
+router.get("/politicians/compare/:a/:b", async (req, res) => {
+  let candidateA = req.params.a;
+  let candidateB = req.params.b;
+
+  try {
+    let politicianA = await Politician.findOne({
+      name: candidateA
+    });
+
+    let politicianB = await Politician.findOne({
+      name: candidateB
+    });
+
+    res
+      .send({
+        politicianA,
+        politicianB
+      })
+      .status(200);
+  } catch (e) {
+    res.status(400).send("politicans not found");
+  }
+});
 
 module.exports = router;
