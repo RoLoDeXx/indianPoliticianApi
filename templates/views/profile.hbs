@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>head}}
+
+<body>
+  {{>nav}}
+  <br />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
+          <div class="card-up indigo lighten-1"></div>
+          <div class="avatar mx-auto white">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
+              alt="politician" />
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{politician.party}}</p>
+            <h2 class="card-title">{{politician.name}}</h2>
+            <h5 class="card-title">{{politician.area}}</h5>
+            <hr />
+            <p>
+              <i class="fas fa-graduation-cap"></i> {{politician.education}}
+            </p>
+            <p>
+              <i class="far fa-gem"></i> {{politician.assets}}
+            </p>
+            <p>
+              <i class="fas fa-car"></i> {{politician.liabilities}}
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/js/popper.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/mdb.min.js"></script>
+</body>
+
+</html>
