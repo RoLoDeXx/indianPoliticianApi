@@ -7,6 +7,7 @@ const searchBy = async (req, res, next) => {
       const politician = await Politician.findOne({
         name: name.charAt(0).toUpperCase() + name.slice(1)
       });
+
       // res.status(200).send(politician);
       console.log(politician);
       res.render("profile.hbs", { politician });

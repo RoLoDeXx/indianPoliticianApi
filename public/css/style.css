@@ -17,3 +17,12 @@
   width: 80%;
   margin: 10%;
 }
+
+.partyName {
+  background: #434e5d;
+  display: inline-block;
+  padding: 0.15rem 1rem;
+  border-radius: 50px;
+  float: right;
+  color: white !important;
+}
