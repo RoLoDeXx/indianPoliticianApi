@@ -7,6 +7,7 @@ require("./db/db");
 const politicansRouter = require("./routes/politicians");
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 hbs.registerPartials(path.join(__dirname, "../templates/partials"));
 app.set("views", path.join(__dirname, "../templates/views"));

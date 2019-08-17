@@ -1,31 +1,27 @@
 const Politician = require("../models/politiciansModel");
 
 const searchBy = async (req, res, next) => {
-  if (req.params.area === undefined) {
-    const name = req.params.name;
-    try {
-      const politician = await Politician.findOne({
-        name: name.charAt(0).toUpperCase() + name.slice(1)
-      });
+  let query = req.params.query;
 
-      // res.status(200).send(politician);
-      console.log(politician);
-      res.render("profile.hbs", { politician });
-    } catch (error) {
-      res.send(400).send("No such politician found");
-    }
+  const politician = await Politician.findOne({
+    name: query.charAt(0).toUpperCase() + query.slice(1)
+  });
+  // res.status(200).send(politician);
+  if (politician) {
+    console.log(politician);
+    return res.render("profile.hbs", { politician });
   } else {
-    const area = req.params.area;
     try {
       const politician = await Politician.findOne({
-        area: area.toUpperCase()
+        area: query.toUpperCase()
       });
-      if (politician) return res.status(200).send(politician);
+      if (politician) return res.render("profile.hbs", { politician });
       else return res.status(200).send("Be precise when you're naming area");
     } catch (error) {
-      res.send(400).send("No such politician found");
+      return res.status(400).send("No such politician found");
     }
   }
+
   next();
 };
 

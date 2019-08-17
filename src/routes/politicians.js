@@ -29,9 +29,9 @@ const router = new express.Router();
 //   }
 // });
 
-router.get("/politicians/name/:name", searchBy, async (req, res) => {});
+router.get("/politicians/:query", searchBy, async (req, res) => {});
 
-router.get("/politicians/area/:area", searchBy, async (req, res) => {});
+// router.get("/politicians/:query", searchBy, async (req, res) => {});
 
 router.get("/politicians/compare/:a/:b", async (req, res) => {
   let candidateA = req.params.a;
