@@ -8,14 +8,15 @@
   <br />
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-6">
+
         <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
-          <div class="card-up indigo lighten-1"></div>
-          <div class="avatar mx-auto white">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
-              alt="politician" />
-          </div>
+
+
           <div class="card-body">
+            <h3 class="card-title">Bio </h3>
+            <img id="bioImage" class=" card-img-top" src="abc.jpg" alt="Card image" style="width:100%">
+
             <p class="card-text partyName">{{politician.party}}</p>
             <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
             <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{politician.area}}</h5>
@@ -34,39 +35,23 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
-          <div class="card-up indigo lighten-1"></div>
-          <div class="avatar mx-auto white">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
-              alt="politician" />
-          </div>
-          <div class="card-body">
-            <p class="card-text partyName">{{politician.party}}</p>
-            <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
-            <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{politician.area}}</h5>
-            <hr />
-            <p>
-              <i class="fas fa-graduation-cap"></i> {{politician.education}}
-            </p>
-            <p>
-              <i class="far fa-gem"></i> {{politician.assets}}
-            </p>
-            <p>
-              <i class="fas fa-car"></i> {{politician.liabilities}}
-            </p>
 
-          </div>
-        </div>
-      </div>
 
       <div class="col-md-6">
         <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
 
           <div class="card-body">
-            <h3 class="card-title">{{politician.name}} in Media</h3>
-            <hr />
-
+            <h3 class="card-title">Media</h3>
+            {{#each articles}}
+            <div class="card">
+              <img class=" card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h4 class="card-title">{{this.title}}</h4>
+                <p class="card-text">{{this.content}}</p>
+                <a href={{this.url}} class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+            {{/each}}
 
           </div>
         </div>
