@@ -8,13 +8,40 @@
   <br />
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <h3 class="card-title">Bio </h3>
 
-        <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
+        <div class="card testimonial-card">
 
 
           <div class="card-body">
-            <h3 class="card-title">Bio </h3>
+            <img id="bioImage" class=" card-img-top" src="abc.jpg" alt="Card image" style="width:100%">
+
+            <p class="card-text partyName">{{politician.party}}</p>
+            <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
+            <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{politician.area}}</h5>
+            <hr />
+            <p>
+              <i class="fas fa-graduation-cap"></i> {{politician.education}}
+            </p>
+            <p>
+              <i class="far fa-gem"></i> {{politician.assets}}
+            </p>
+            <p>
+              <i class="fas fa-car"></i> {{politician.liabilities}}
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <h3 class="card-title">Stats </h3>
+
+        <div class="card testimonial-card">
+
+
+          <div class="card-body">
             <img id="bioImage" class=" card-img-top" src="abc.jpg" alt="Card image" style="width:100%">
 
             <p class="card-text partyName">{{politician.party}}</p>
@@ -37,24 +64,16 @@
 
 
 
-      <div class="col-md-6">
-        <div class="card testimonial-card" style="margin-bottom: 0.5rem;">
-
-          <div class="card-body">
-            <h3 class="card-title">Media</h3>
-            {{#each articles}}
-            <div class="card">
-              <img class=" card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%">
-              <div class="card-body">
-                <h4 class="card-title">{{this.title}}</h4>
-                <p class="card-text">{{this.content}}</p>
-                <a href={{this.url}} class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-            {{/each}}
-
-          </div>
+      <div class="col-md-4 overflow-media">
+        <h3 class="card-title">Media</h3>
+        {{#each articles}}
+        <div class="card mb-2">
+          <img class="card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%">
+          <h4 class="card-title p-3">{{this.title}}</h4>
+          <p class="card-text p-3">{{this.content}}</p>
+          <a href={{this.url}} class="btn btn-primary p-3 read-more">Read More</a>
         </div>
+        {{/each}}
       </div>
     </div>
   </div>

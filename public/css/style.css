@@ -52,3 +52,38 @@
 body {
   overflow-x: hidden;
 }
+
+.politician-media {
+  box-shadow: none;
+}
+
+.testimonial-card {
+  margin-bottom: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdd835;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(53, 53, 53);
+}
+
+.read-more {
+  background: #fdd835 !important;
+  color: black;
+}
+
+.overflow-media {
+  height: 40rem;
+  overflow-y: scroll;
+}
