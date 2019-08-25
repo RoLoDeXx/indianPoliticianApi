@@ -5,8 +5,7 @@
 
 <body>
   {{>nav}}
-  <br />
-  <div class="container-fluid">
+  {{!-- <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
         <h3 class="card-title">Bio </h3>
@@ -15,7 +14,7 @@
 
 
           <div class="card-body">
-            <img id="bioImage" class=" card-img-top" src="abc.jpg" alt="Card image" style="width:100%">
+            <img id="bioImage" class=" card-img-top" src="" alt="Card image" style="width:100%">
 
             <p class="card-text partyName">{{politician.party}}</p>
             <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
@@ -76,7 +75,192 @@
         {{/each}}
       </div>
     </div>
+  </div> --}}
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1 class="h1-responsive">Bio</h1>
+        <div class="card">
+          <img class="card-img-top" src="img/rahul.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{politcian.name}}</h4>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="far fa-user icon-style"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-text icon-style">{{politician.party}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="fas fa-map-marker-alt icon-style"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-text icon-style">{{politician.area}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="fas fa-graduation-cap icon-style"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-text icon-style">{{politician.education}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="far fa-gem icon-style"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-text icon-style"><i class="fas fa-rupee-sign"></i> {{politician.assets}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="fas fa-car"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-text icon-style"><i class="fas fa-rupee-sign"></i> {{politician.liabilities}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+          <div class="controls-top">
+            <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+            <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+                class="fas fa-chevron-right"></i></a>
+          </div>
+          <ol class="carousel-indicators">
+            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+            <li data-target="#multi-item-example" data-slide-to="1"></li>
+            <li data-target="#multi-item-example" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            {{!-- <!--First slide--> --}}
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.1.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.1.title}}</h4>
+                      <p class="card-text">{{articles.1.content}}</p>
+                      <a class="btn btn-primary">Read More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.2.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.2.title}}</h4>
+                      <p class="card-text">{{articles.2.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.3.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.3.title}}</h4>
+                      <p class="card-text">{{articles.3.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{!-- <!--Second slide--> --}}
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.4.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.4.title}}</h4>
+                      <p class="card-text">{{articles.4.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.5.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.5.title}}</h4>
+                      <p class="card-text">{{articles.5.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.6.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.6.title}}</h4>
+                      <p class="card-text">{{articles.6.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{!-- <!--Third slide--> --}}
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.7.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.7.title}}</h4>
+                      <p class="card-text">{{articles.7.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.8.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.8.title}}</h4>
+                      <p class="card-text">{{articles.8.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-2">
+                    <img class="card-img-top" src={{articles.9.urlToImage}} alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">{{articles.9.title}}</h4>
+                      <p class="card-text">{{articles.9.content}}</p>
+                      <a class="btn btn-primary">Button</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
   <script src="/js/main.js"></script>
   <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/js/popper.min.js"></script>

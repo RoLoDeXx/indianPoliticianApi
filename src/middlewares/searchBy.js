@@ -4,14 +4,12 @@ const fetch = require("node-fetch");
 const searchBy = async (req, res, next) => {
   let query = req.params.query;
   const politician = await Politician.findOne({
-    name: query.charAt(0).toUpperCase() + query.slice(1)
+    name: query.replace(/\b\w/g, l => l.toUpperCase())
   });
-  // res.status(200).send(politician);
   if (politician) {
     getData(politician.name).then(media => {
-      // console.log(media.articles);
       res.render("profile.hbs", { politician, articles: media.articles });
-      // console.log(politician);
+      console.log(politician);
     });
   } else {
     try {
@@ -20,7 +18,6 @@ const searchBy = async (req, res, next) => {
       });
       if (politician) {
         getData(politician.name).then(media => {
-          // console.log(media.articles);
           res.render("profile.hbs", { politician, articles: media.articles });
         });
       } else return res.status(200).send("Be precise when you're naming area");
@@ -39,6 +36,7 @@ const getData = async name => {
       "&apiKey=c56342e38b764faa9a491db2132bc3e6&pageSize=10"
   );
   media = await media.json();
+
   return media;
 };
 
