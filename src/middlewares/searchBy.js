@@ -1,10 +1,14 @@
-const Politician = require("../models/politiciansModel");
 const fetch = require("node-fetch");
+const Politician = require("../models/politiciansModel");
+
+const getImage = require("../utils/getImage");
 
 const searchBy = async (req, res, next) => {
   let query = req.params.query;
+  name = query.replace(/\b\w/g, l => l.toUpperCase());
+
   const politician = await Politician.findOne({
-    name: query.replace(/\b\w/g, l => l.toUpperCase())
+    name
   });
   if (politician) {
     getData(politician.name).then(media => {
