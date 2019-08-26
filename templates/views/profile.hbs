@@ -5,84 +5,13 @@
 
 <body>
   {{>nav}}
-  {{!-- <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        <h3 class="card-title">Bio </h3>
-
-        <div class="card testimonial-card">
-
-
-          <div class="card-body">
-            <img id="bioImage" class=" card-img-top" src="" alt="Card image" style="width:100%">
-
-            <p class="card-text partyName">{{politician.party}}</p>
-            <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
-            <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{politician.area}}</h5>
-            <hr />
-            <p>
-              <i class="fas fa-graduation-cap"></i> {{politician.education}}
-            </p>
-            <p>
-              <i class="far fa-gem"></i> {{politician.assets}}
-            </p>
-            <p>
-              <i class="fas fa-car"></i> {{politician.liabilities}}
-            </p>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <h3 class="card-title">Stats </h3>
-
-        <div class="card testimonial-card">
-
-
-          <div class="card-body">
-            <img id="bioImage" class=" card-img-top" src="abc.jpg" alt="Card image" style="width:100%">
-
-            <p class="card-text partyName">{{politician.party}}</p>
-            <h5 class="card-title"><i class="far fa-user"></i>{{politician.name}}</h5>
-            <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> {{politician.area}}</h5>
-            <hr />
-            <p>
-              <i class="fas fa-graduation-cap"></i> {{politician.education}}
-            </p>
-            <p>
-              <i class="far fa-gem"></i> {{politician.assets}}
-            </p>
-            <p>
-              <i class="fas fa-car"></i> {{politician.liabilities}}
-            </p>
-
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="col-md-4 overflow-media">
-        <h3 class="card-title">Media</h3>
-        {{#each articles}}
-        <div class="card mb-2">
-          <img class="card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%">
-          <h4 class="card-title p-3">{{this.title}}</h4>
-          <p class="card-text p-3">{{this.content}}</p>
-          <a href={{this.url}} class="btn btn-primary p-3 read-more">Read More</a>
-        </div>
-        {{/each}}
-      </div>
-    </div>
-  </div> --}}
 
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
         <h1 class="h1-responsive">Bio</h1>
         <div class="card">
-          <img class="card-img-top" src="img/rahul.webp" alt="Card image cap">
+          <img class="card-img-top profile-pic" src={{politicianImage}}>
           <div class="card-body">
             <h4 class="card-title">{{politcian.name}}</h4>
             <div class="row">
@@ -90,7 +19,16 @@
                 <p class="card-text icon-style"><i class="far fa-user icon-style"></i></p>
               </div>
               <div class="col-sm-11">
-                <p class="card-text icon-style">{{politician.party}}</p>
+                <p class="card-title icon-style">{{politician.name}}</p>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="card-text icon-style"><i class="fas fa-users"></i></p>
+              </div>
+              <div class="col-sm-11">
+                <p class="card-title icon-style">{{politician.party}}</p>
               </div>
             </div>
             <br>
@@ -99,7 +37,7 @@
                 <p class="card-text icon-style"><i class="fas fa-map-marker-alt icon-style"></i></p>
               </div>
               <div class="col-sm-11">
-                <p class="card-text icon-style">{{politician.area}}</p>
+                <p class="card-title icon-style">{{politician.area}}</p>
               </div>
             </div>
             <br>
@@ -108,7 +46,7 @@
                 <p class="card-text icon-style"><i class="fas fa-graduation-cap icon-style"></i></p>
               </div>
               <div class="col-sm-11">
-                <p class="card-text icon-style">{{politician.education}}</p>
+                <p class="card-title icon-style">{{politician.education}}</p>
               </div>
             </div>
             <br>
@@ -117,7 +55,7 @@
                 <p class="card-text icon-style"><i class="far fa-gem icon-style"></i></p>
               </div>
               <div class="col-sm-11">
-                <p class="card-text icon-style"><i class="fas fa-rupee-sign"></i> {{politician.assets}}</p>
+                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i> {{politician.assets}}</p>
               </div>
             </div>
             <br>
@@ -126,7 +64,7 @@
                 <p class="card-text icon-style"><i class="fas fa-car"></i></p>
               </div>
               <div class="col-sm-11">
-                <p class="card-text icon-style"><i class="fas fa-rupee-sign"></i> {{politician.liabilities}}</p>
+                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i> {{politician.liabilities}}</p>
               </div>
             </div>
           </div>

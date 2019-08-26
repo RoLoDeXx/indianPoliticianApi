@@ -11,8 +11,14 @@ const searchBy = async (req, res, next) => {
     name
   });
   if (politician) {
+    let politicianImage = await getImage(politician.name);
+
     getData(politician.name).then(media => {
-      res.render("profile.hbs", { politician, articles: media.articles });
+      res.render("profile.hbs", {
+        politician,
+        articles: media.articles,
+        politicianImage
+      });
       console.log(politician);
     });
   } else {
@@ -21,8 +27,14 @@ const searchBy = async (req, res, next) => {
         area: query.toUpperCase()
       });
       if (politician) {
+        let politicianImage = await getImage(politician.name);
+
         getData(politician.name).then(media => {
-          res.render("profile.hbs", { politician, articles: media.articles });
+          res.render("profile.hbs", {
+            politician,
+            articles: media.articles,
+            politicianImage
+          });
         });
       } else return res.status(200).send("Be precise when you're naming area");
     } catch (error) {

@@ -22,22 +22,21 @@
   background: #0d0a0b !important;
 }
 
-#siteLogo {
+#site-logo {
   width: 10rem;
 }
 
-#searchQuery {
-  background: #fdd835;
-  border-radius: 50px;
-  padding-left: 1rem;
-  border: none;
-  outline: none;
+.search-query {
+  background: #8d8d8d !important;
+  border-radius: 50px !important;
+  padding-left: 1rem !important;
+  border: none !important;
+  outline: none !important;
 }
 
-.onThis {
-  background: #fdd835;
-  border-radius: 50px;
-  padding: 0 1rem;
+.on-this-page {
+  color: #fdd835 !important;
+  text-decoration: underline;
 }
 
 body {
@@ -57,11 +56,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #fdd835;
+  background: black;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: rebeccapurple;
   border-radius: 10px;
 }
 
@@ -80,6 +79,33 @@ body {
 }
 
 .card-body a {
-  color: black !important;
-  background: #f9d534 !important;
+  color: #f9d534 !important;
+  background: rebeccapurple !important;
+}
+
+.profile-pic {
+  width: 10rem;
+  border-radius: 50%;
+  margin: auto;
+  border: 2px solid rebeccapurple;
+  margin-top: 1rem;
+}
+
+.fa,
+.far,
+.fas {
+  font-family: "Font Awesome 5 Free";
+  color: rebeccapurple;
+}
+
+.controls-top {
+  text-align: center;
+}
+
+.fa-chevron-right,
+.fa-chevron-left {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 50%;
+  background: #fdd835;
 }

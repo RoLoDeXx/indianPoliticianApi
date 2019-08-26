@@ -6,7 +6,7 @@ const getImage = (query, cb) => {
     uri:
       "https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=" +
       query +
-      "&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=iar:s",
+      "&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:6mp,iar:s",
     transform: function(body) {
       return cheerio.load(body);
     }
