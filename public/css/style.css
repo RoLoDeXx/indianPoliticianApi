@@ -109,3 +109,7 @@ body {
   border-radius: 50%;
   background: #fdd835;
 }
+
+.card-img-top {
+  height: 17rem;
+}

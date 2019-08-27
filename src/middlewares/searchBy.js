@@ -28,7 +28,6 @@ const searchBy = async (req, res, next) => {
       });
       if (politician) {
         let politicianImage = await getImage(politician.name);
-
         getData(politician.name).then(media => {
           res.render("profile.hbs", {
             politician,
@@ -52,6 +51,9 @@ const getData = async name => {
       "&apiKey=c56342e38b764faa9a491db2132bc3e6&pageSize=10"
   );
   media = await media.json();
+  media.articles.forEach(i => {
+    console.log(i.content.slice(0, 100));
+  });
 
   return media;
 };
