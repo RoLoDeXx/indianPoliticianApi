@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap");
+
+.error-message {
+  color: #fcbf04;
+  font-weight: bold;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-family: "Lexend Mega", sans-serif !important;
+}
+
 .card-comments img {
   width: 4rem;
 }
@@ -108,4 +122,18 @@ body {
   padding: 1rem 1.25rem;
   border-radius: 50%;
   background: #fdd835;
+}
+
+@media only screen and (max-width: 600px) {
+  .error-message {
+    color: #fcbf04;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 4rem;
+    font-family: "Lexend Mega", sans-serif !important;
+  }
 }

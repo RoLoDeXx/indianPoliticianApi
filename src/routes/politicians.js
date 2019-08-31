@@ -52,6 +52,6 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
 });
 
 router.get("/*", async (req, res) => {
-  res.send("not found");
+  res.render("404");
 });
 module.exports = router;
