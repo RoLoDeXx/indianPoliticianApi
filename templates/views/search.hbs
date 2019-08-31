@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+
+<body>
+    {{>nav}}
+    <div class="container-fluid col-sm-9 col-md-7 col-lg-5 mx-auto mt-4">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text search-left-box"><i class="far fa-user"></i></span>
+            </div>
+            <input id="searchPolitician" type="text" class="form-control">
+            <div class="input-group-append">
+                <span class="input-group-text search-right-box" id="searchBtn"><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <script src="/js/searchP.js"></script>
+    {{>scripts}}
+
+</body>
+
+</html>

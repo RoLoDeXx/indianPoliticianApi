@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/politicians", async (req, res) => {
-  res.send("politician search will come here");
+  res.render("search");
 });
 
 router.get("/politicians/compare", async (req, res) => {
