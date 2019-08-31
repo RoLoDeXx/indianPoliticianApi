@@ -35,9 +35,14 @@ const searchBy = async (req, res, next) => {
             politicianImage
           });
         });
-      } else return res.status(200).send("Be precise when you're naming area");
+      } else
+        return res.render("404.hbs", {
+          message: "Politician not found"
+        });
     } catch (error) {
-      return res.status(400).send("No such politician found");
+      return res.render("404.hbs", {
+        message: "Politician not found"
+      });
     }
   }
 
