@@ -1,5 +1,5 @@
 const express = require("express");
-
+const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
 const searchBy = require("../middlewares/searchBy");
 
@@ -38,14 +38,19 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
     });
 
     if (politicianA === null || politicianB === null)
-      return res.status(404).send("Politicians not found");
+      return res.render("404", {
+        message: "Two politicians are required"
+      });
 
-    res
-      .send({
-        politicianA,
-        politicianB
-      })
-      .status(200);
+    let politicianAImage = await getImage(politicianA.name);
+    let politicianBImage = await getImage(politicianB.name);
+
+    res.render("compare.hbs", {
+      politicianA,
+      politicianB,
+      politicianAImage,
+      politicianBImage
+    });
   } catch (e) {
     res.status(400).send("politicans not found");
   }
