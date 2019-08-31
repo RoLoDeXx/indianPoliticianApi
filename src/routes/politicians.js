@@ -5,11 +5,28 @@ const searchBy = require("../middlewares/searchBy");
 
 const router = new express.Router();
 
+router.get("/", async (req, res) => {
+  res.send("home page will come here");
+});
+
+router.get("/politicians", async (req, res) => {
+  res.send("politician search will come here");
+});
+
+router.get("/politicians/compare", async (req, res) => {
+  res.send("compare search will come here");
+});
+
 router.get("/politicians/:query", searchBy, async (req, res) => {});
 
 router.get("/politicians/compare/:a/:b", async (req, res) => {
   let candidateA = req.params.a;
   let candidateB = req.params.b;
+  candidateA = candidateA.toLowerCase();
+  candidateB = candidateB.toLowerCase();
+
+  candidateA = candidateA.replace(/\b\w/g, l => l.toUpperCase());
+  candidateB = candidateB.replace(/\b\w/g, l => l.toUpperCase());
 
   try {
     let politicianA = await Politician.findOne({
@@ -34,4 +51,7 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
   }
 });
 
+router.get("/*", async (req, res) => {
+  res.send("not found");
+});
 module.exports = router;

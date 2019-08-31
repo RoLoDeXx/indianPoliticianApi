@@ -1,6 +1,6 @@
-const fetch = require("node-fetch");
 const Politician = require("../models/politiciansModel");
 
+const getNewsArticles = require("../utils/getNewsArticles");
 const getImage = require("../utils/getImage");
 
 const searchBy = async (req, res, next) => {
@@ -13,13 +13,13 @@ const searchBy = async (req, res, next) => {
   if (politician) {
     let politicianImage = await getImage(politician.name);
 
-    getData(politician.name).then(media => {
+    getNewsArticles(politician.name).then(media => {
       res.render("profile.hbs", {
         politician,
         articles: media.articles,
         politicianImage
       });
-      console.log(politician);
+      // console.log(politician);
     });
   } else {
     try {
@@ -28,7 +28,7 @@ const searchBy = async (req, res, next) => {
       });
       if (politician) {
         let politicianImage = await getImage(politician.name);
-        getData(politician.name).then(media => {
+        getNewsArticles(politician.name).then(media => {
           res.render("profile.hbs", {
             politician,
             articles: media.articles,
@@ -42,20 +42,6 @@ const searchBy = async (req, res, next) => {
   }
 
   next();
-};
-
-const getData = async name => {
-  let media = await fetch(
-    "https://newsapi.org/v2/everything?q=" +
-      name +
-      "&apiKey=c56342e38b764faa9a491db2132bc3e6&pageSize=10"
-  );
-  media = await media.json();
-  media.articles.forEach(i => {
-    console.log(i.content.slice(0, 100));
-  });
-
-  return media;
 };
 
 module.exports = searchBy;
