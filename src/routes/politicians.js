@@ -26,9 +26,14 @@ router.get("/build", (req, res) => {
 
   politicsData.forEach(element => {
     const politicsEl = new Politician(element);
-    politicsEl.save().catch(e => {
-      e;
-    });
+    politicsEl
+      .save()
+      .then(() => {
+        console.log("db mai save ho gaye honge");
+      })
+      .catch(e => {
+        e;
+      });
   });
 });
 
