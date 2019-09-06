@@ -19,7 +19,7 @@ router.get("/politicians/compare", async (req, res) => {
   res.send("compare search will come here");
 });
 
-router.post("/build", (req, res) => {
+router.get("/build", (req, res) => {
   console.log("on build");
 
   res.status(200).send(politicsData);
