@@ -22,8 +22,6 @@ router.get("/politicians/compare", async (req, res) => {
 router.get("/build", (req, res) => {
   console.log("on build");
 
-  res.status(200).send(politicsData);
-
   politicsData.forEach(element => {
     const politicsEl = new Politician(element);
     politicsEl
