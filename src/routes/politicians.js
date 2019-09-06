@@ -70,9 +70,9 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
   }
 });
 
-router.get("/*", async (req, res) => {
-  res.render("404", {
-    message: "Page not found"
-  });
-});
+// router.get("/*", async (req, res) => {
+//   res.render("404", {
+//     message: "Page not found"
+//   });
+// });
 module.exports = router;
