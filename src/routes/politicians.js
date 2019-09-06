@@ -11,15 +11,15 @@ router.get("/", async (req, res) => {
   res.send("home page will come here");
 });
 
-router.get("/build", async (req, res) => {
-  await console.log("in the fucking route");
-  politicsData.forEach(element => {
-    const politicsEl = new Politician(element);
-    politicsEl.save().catch(e => {
-      console.log(e);
-    });
-  });
-});
+// router.get("/build", async (req, res) => {
+//   await console.log("in the fucking route");
+//   politicsData.forEach(element => {
+//     const politicsEl = new Politician(element);
+//     politicsEl.save().catch(e => {
+//       console.log(e);
+//     });
+//   });
+// });
 
 router.get("/politicians", async (req, res) => {
   res.render("search");
@@ -68,9 +68,9 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
   }
 });
 
-// router.get("/*", async (req, res) => {
-//   res.render("404", {
-//     message: "Page not found"
-//   });
-// });
+router.get("/*", async (req, res) => {
+  res.render("404", {
+    message: "Page not found"
+  });
+});
 module.exports = router;
