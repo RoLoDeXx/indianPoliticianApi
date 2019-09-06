@@ -20,8 +20,7 @@
     "nodemon": "^1.19.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "env-cmd -f ./config/dev.env nodemon src/app.js -e hbs,js,css"
+    "start": "node src/app.js"
   },
   "author": "",
   "description": ""
