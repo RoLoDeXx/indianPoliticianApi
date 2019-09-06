@@ -11,14 +11,6 @@ router.get("/", async (req, res) => {
   res.send("home page will come here");
 });
 
-router.get("/politicians", async (req, res) => {
-  res.render("search");
-});
-
-router.get("/politicians/compare", async (req, res) => {
-  res.send("compare search will come here");
-});
-
 router.post("/build", (req, res) => {
   politicsData.forEach(element => {
     const politicsEl = new Politician(element);
@@ -31,6 +23,14 @@ router.post("/build", (req, res) => {
         console.log(e) + "something fucked up";
       });
   });
+});
+
+router.get("/politicians", async (req, res) => {
+  res.render("search");
+});
+
+router.get("/politicians/compare", async (req, res) => {
+  res.send("compare search will come here");
 });
 
 router.get("/politicians/:query", searchBy, async (req, res) => {});
