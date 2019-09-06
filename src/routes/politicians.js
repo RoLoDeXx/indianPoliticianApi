@@ -11,17 +11,13 @@ router.get("/", async (req, res) => {
   res.send("home page will come here");
 });
 
-router.post("/build", (req, res) => {
+router.get("/build", async (req, res) => {
+  await console.log("in the fucking route");
   politicsData.forEach(element => {
     const politicsEl = new Politician(element);
-    politicsEl
-      .save()
-      .then(() => {
-        console.log("db mai save ho gaye honge");
-      })
-      .catch(e => {
-        console.log(e) + "something fucked up";
-      });
+    politicsEl.save().catch(e => {
+      console.log(e);
+    });
   });
 });
 

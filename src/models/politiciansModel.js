@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const PoliticanSchema = new mongoose.Schema({
   number: {
-    type: Number,
+    type: String,
     required: false
   },
   name: {
@@ -20,8 +20,7 @@ const PoliticanSchema = new mongoose.Schema({
     trim: true
   },
   cases: {
-    type: Number,
-    required: true,
+    type: String,
     default: 0
   },
   education: {

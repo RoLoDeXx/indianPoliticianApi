@@ -20,7 +20,8 @@
     "nodemon": "^1.19.1"
   },
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "dev-start": "env-cmd -f ./config/dev.env nodemon src/app.js"
   },
   "author": "",
   "description": ""
