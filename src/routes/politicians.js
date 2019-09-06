@@ -3,6 +3,8 @@ const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
 const searchBy = require("../middlewares/searchBy");
 
+const politicsData = require("../utils/data.json");
+
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
@@ -15,6 +17,17 @@ router.get("/politicians", async (req, res) => {
 
 router.get("/politicians/compare", async (req, res) => {
   res.send("compare search will come here");
+});
+
+router.post("/build", (req, res) => {
+  res.status(200).send(politicsData);
+
+  politicsData.forEach(element => {
+    const politicsEl = new Politician(element);
+    politicsEl.save().catch(e => {
+      e;
+    });
+  });
 });
 
 router.get("/politicians/:query", searchBy, async (req, res) => {});
