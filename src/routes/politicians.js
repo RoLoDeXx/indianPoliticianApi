@@ -32,7 +32,7 @@ router.get("/build", (req, res) => {
         console.log("db mai save ho gaye honge");
       })
       .catch(e => {
-        e;
+        console.log(e) + "something fucked up";
       });
   });
 });
