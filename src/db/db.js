@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const urlDB = "mongodb://127.0.0.1:27017/politics-data-api";
+const urlDB = process.env.MONGODB_URL;
 mongoose.connect(urlDB, {
   useNewUrlParser: true,
   useCreateIndex: true
