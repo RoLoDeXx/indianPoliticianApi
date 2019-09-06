@@ -19,9 +19,7 @@ router.get("/politicians/compare", async (req, res) => {
   res.send("compare search will come here");
 });
 
-router.get("/build", (req, res) => {
-  console.log("on build");
-
+router.post("/build", (req, res) => {
   politicsData.forEach(element => {
     const politicsEl = new Politician(element);
     politicsEl
