@@ -2,24 +2,14 @@ const express = require("express");
 const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
 const searchBy = require("../middlewares/searchBy");
-
-const politicsData = require("../utils/data.json");
+const getNewsArticles = require("../utils/getNewsArticles");
 
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
-  res.render("home.hbs");
+  let media = await getNewsArticles("indian politics");
+  res.render("home.hbs", { articles: media.articles });
 });
-
-// router.get("/build", async (req, res) => {
-//   await console.log("in the fucking route");
-//   politicsData.forEach(element => {
-//     const politicsEl = new Politician(element);
-//     politicsEl.save().catch(e => {
-//       console.log(e);
-//     });
-//   });
-// });
 
 router.get("/politicians", async (req, res) => {
   res.render("search");

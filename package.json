@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "dev-start": "env-cmd -f ./config/dev.env nodemon src/app.js"
+    "dev-start": "env-cmd -f ./config/dev.env nodemon src/app.js -e hbs,js,css,json"
   },
   "author": "",
   "description": ""
