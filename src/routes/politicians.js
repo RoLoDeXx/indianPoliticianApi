@@ -7,7 +7,8 @@ const getNewsArticles = require("../utils/getNewsArticles");
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
-  let media = await getNewsArticles("indian politics");
+  let media = await getNewsArticles("India");
+  console.log(media.articles);
   res.render("home.hbs", { articles: media.articles });
 });
 

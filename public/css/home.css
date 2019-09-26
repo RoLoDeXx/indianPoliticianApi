@@ -12,11 +12,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  /* Position the items */
-  // &:nth-child(2) { top: 25%; }
-  // &:nth-child(3) { top: 50%; }
-  // &:nth-child(4) { top: 75%; }
 }
 .make-me-sticky {
   position: -webkit-sticky;
@@ -37,8 +32,6 @@ article {
 .content-section,
 .sidebar-section {
   background: white;
-  // border-radius: 12px;
-  // border: solid 10px #f1f1f1;
 }
 .title-section {
   text-align: center;
@@ -50,13 +43,13 @@ article {
   margin: 0;
   padding-top: 200px;
 }
+
 .sidebar-item {
   text-align: center;
   position: sticky;
   overflow-y: overlay;
   height: 36rem;
   text-align: center;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .align-center {
@@ -70,6 +63,33 @@ article {
   margin: 0 auto;
 }
 
-.box-shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.card {
+  box-shadow: none !important;
+}
+
+.media {
+  border: 1px solid rebeccapurple;
+}
+
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  background: #000000bf;
+}
+
+.carousel-item img {
+  height: 25rem;
+  width: 100%;
+}
+
+.cyan.darken-3 {
+  background: #ffc107 !important;
 }
