@@ -2,14 +2,27 @@ const express = require("express");
 const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
 const searchBy = require("../middlewares/searchBy");
-const getNewsArticles = require("../utils/getNewsArticles");
+
+const politicsData = require("../utils/data.json");
 
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
-  let media = await getNewsArticles("India");
-  console.log(media.articles);
-  res.render("home.hbs", { articles: media.articles });
+  res.send("home page will come here");
+});
+
+router.get("/build", (req, res) => {
+  politicsData.forEach(element => {
+    const politicsEl = new Politician(element);
+    politicsEl
+      .save()
+      .then(() => {
+        console.log("db mai save ho gaye honge");
+      })
+      .catch(e => {
+        console.log(e) + "something fucked up";
+      });
+  });
 });
 
 router.get("/politicians", async (req, res) => {
@@ -59,9 +72,4 @@ router.get("/politicians/compare/:a/:b", async (req, res) => {
   }
 });
 
-router.get("/*", async (req, res) => {
-  res.render("404", {
-    message: "Page not found"
-  });
-});
 module.exports = router;
