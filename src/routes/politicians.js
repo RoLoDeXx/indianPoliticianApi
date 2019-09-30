@@ -8,7 +8,7 @@ const politicsData = require("../utils/data.json");
 const router = new express.Router();
 
 router.get("/", async (req, res) => {
-  res.send("home page will come here");
+  res.render("home.hbs");
 });
 
 router.get("/build", (req, res) => {
