@@ -134,6 +134,11 @@ body {
   background: #fdd835;
 }
 
+.search-page-feild {
+  background: #f9d534;
+  border-radius: 5px;
+}
+
 @media only screen and (max-width: 600px) {
   .error-message {
     color: #fcbf04;

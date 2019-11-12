@@ -8,7 +8,42 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <body>
-    {{>nav}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                <a class="navbar-brand" href="/"><img id="site-logo" src="/images/Capture3.PNG"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link on-this-page" href="/">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/politicians">Politicians</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/politicians/compare">Compare</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team</a>
+                        </li>
+
+                    </ul>
+                    <form class="form-inline" id="searchForm">
+                        <div class="md-form my-0">
+                            <input id="searchQuery" class="search-query form-control mr-sm-2" type="text"
+                                placeholder="Search" aria-label="Search" />
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
     <section class="section-a">
         <div class="container">
             <div>
@@ -39,12 +74,29 @@
         </div>
     </section>
 
+    <h1 class="text-center display-3 mt-4 mb-4">App in action</h1>
+
+    <section class="section-c mt-4">
+        <div class="gallery">
+            <a href="#" class="big"><img src="/images/modi.png" alt="" /></a>
+            <a href="#" class="big"><img src="/images/search.png" alt="" /></a>
+            <a href="https://i.ibb.co/xSnHP7g/gal43884.jpg" class="big"><img src="https://i.ibb.co/xSnHP7g/gal43884.jpg"
+                    alt="" /></a>
+            <a href="https://i.ibb.co/QN6Bnrb/gal4958.jpg" class="big"><img src="https://i.ibb.co/QN6Bnrb/gal4958.jpg"
+                    alt="" /></a>
+            <a href="https://i.ibb.co/dGZvj75/gal4545.jpg" class="big">
+                <img src="https://i.ibb.co/dGZvj75/gal4545.jpg" alt="" /></a>
+            <a href="https://i.ibb.co/S6FVFNt/gal74744.jpg" class="big"><img src="https://i.ibb.co/S6FVFNt/gal74744.jpg"
+                    alt="" /></a>
+        </div>
+    </section>
 
 
-    <footer class="section-footer py-4 bg-primary">
+
+    <footer class="section-footer py-4 bg-primary mt-4">
         <div class="container">
             <div>
-                <h2 class="text-2 mb-1">Lorem ipsum dolor sit.</h2>
+                <h2 class="text-2 mb-1">Catch Satark on other social media platforms!</h2>
                 <a href="http://twitter.com">
                     <i class="fab fa-twitter fa-2x"></i>
                 </a>
@@ -58,33 +110,14 @@
             <div>
                 <h3>Company Info</h3>
                 <ul>
-                    <li><a href="#">All Products</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
+
             <div>
-                <h3>Blog Posts</h3>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolor.</a></li>
-                    <li><a href="#">Lorem ipsum dolor.</a></li>
-                    <li><a href="#">Lorem ipsum dolor.</a></li>
-                    <li><a href="#">Lorem ipsum dolor.</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Subscribe</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
-                <form class="mt-1" name="email-form" method="POST" data-netlify="true">
-                    <div class="email-form">
-                        <span class="form-control-wrap"><input type="email" name="email" id="email" size="40"
-                                class="form-control" placeholder="E-mail" />
-                        </span>
-                    </div>
-                </form>
+                <h3>Want to bring change? Vote.</h3>
             </div>
         </div>
     </footer>

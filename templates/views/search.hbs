@@ -3,7 +3,43 @@
 {{>head}}
 
 <body>
-    {{>nav}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+                <a class="navbar-brand" href="/"><img id="site-logo" src="/images/Capture3.PNG"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+                    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="/">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link on-this-page" href="/politicians">Politicians</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/politicians/compare">Compare</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team</a>
+                        </li>
+
+                    </ul>
+                    <form class="form-inline" id="searchForm">
+                        <div class="md-form my-0">
+                            <input id="searchQuery" class="search-query form-control mr-sm-2" type="text"
+                                placeholder="Search" aria-label="Search" />
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
     <div class="container-fluid col-sm-9 col-md-7 col-lg-5 mx-auto mt-4">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -14,8 +50,14 @@
                 <span class="input-group-text search-right-box" id="searchBtn"><i class="fas fa-search"></i></span>
             </div>
 
-            <div class="container" style="background: yellow">
+            <div class="container mt-4 border-rounded search-page-feild">
 
+                <h4 class="p-2">
+
+                    Customize what you find in Satark · Get info about any politician or assembly
+                    Including their news articles too.
+
+                </h4>
 
             </div>
         </div>

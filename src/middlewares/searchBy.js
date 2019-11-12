@@ -1,5 +1,6 @@
 const Politician = require("../models/politiciansModel");
 
+const getVideos = require("../utils/getVideos");
 const getNewsArticles = require("../utils/getNewsArticles");
 const getImage = require("../utils/getImage");
 
@@ -10,8 +11,11 @@ const searchBy = async (req, res, next) => {
   const politician = await Politician.findOne({
     name
   });
+
   if (politician) {
     let politicianImage = await getImage(politician.name);
+    let politicianVideos = await getVideos(politician.name);
+    console.log(politicianVideos);
 
     getNewsArticles(politician.name).then(media => {
       res.render("profile.hbs", {
@@ -19,7 +23,6 @@ const searchBy = async (req, res, next) => {
         articles: media.articles,
         politicianImage
       });
-      // console.log(politician);
     });
   } else {
     try {
@@ -28,6 +31,9 @@ const searchBy = async (req, res, next) => {
       });
       if (politician) {
         let politicianImage = await getImage(politician.name);
+        let politicianVideos = await getVideos(politician.name);
+        console.log(politicianVideos);
+
         getNewsArticles(politician.name).then(media => {
           res.render("profile.hbs", {
             politician,
