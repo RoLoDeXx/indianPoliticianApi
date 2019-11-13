@@ -13,16 +13,16 @@ const searchBy = async (req, res, next) => {
     year: 19
   });
 
-  let currPoliArea = politician.area.toLowerCase();
-
-  const prevPolitician = await Politician.findOne({
-    area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
-    year: 9
-  });
-
-  console.log(prevPolitician);
-
   if (politician) {
+    let currPoliArea = politician.area.toLowerCase();
+
+    const prevPolitician = await Politician.findOne({
+      area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
+      year: 9
+    });
+    console.log(parseInt(politician.assets.split("Or")[0].replace(/\,/g, "")));
+    console.log(prevPolitician);
+
     let politicianImage = await getImage(politician.name);
     let politicianVideos = await getVideos(politician.name);
 
@@ -31,7 +31,17 @@ const searchBy = async (req, res, next) => {
         politician,
         articles: media.articles,
         politicianImage,
-        politicianVideos
+        politicianVideos,
+        prevPolitician,
+        politicianAssets: parseInt(
+          politician.assets.split("Or")[0].replace(/\,/g, "")
+        ),
+        politicianLiabilities: parseInt(
+          politician.liabilities.split("Or")[0].replace(/\,/g, "")
+        ),
+        prevPoliticianLiabilities: parseInt(
+          prevPolitician.liabilities.split("Or")[0].replace(/\,/g, "")
+        )
       });
     });
   } else {
@@ -40,7 +50,15 @@ const searchBy = async (req, res, next) => {
         area: query.toUpperCase(),
         year: 19
       });
+
       if (politician) {
+        let currPoliArea = query.toLowerCase();
+
+        const prevPolitician = await Politician.findOne({
+          area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
+          year: 9
+        });
+
         let politicianImage = await getImage(politician.name);
         let politicianVideos = await getVideos(politician.name);
 
@@ -49,7 +67,8 @@ const searchBy = async (req, res, next) => {
             politician,
             articles: media.articles,
             politicianImage,
-            politicianVideos
+            politicianVideos,
+            prevPolitician
           });
         });
       } else
