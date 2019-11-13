@@ -9,36 +9,47 @@ const searchBy = async (req, res, next) => {
   name = query.replace(/\b\w/g, l => l.toUpperCase());
 
   const politician = await Politician.findOne({
-    name
+    name,
+    year: 19
   });
+
+  let currPoliArea = politician.area.toLowerCase();
+
+  const prevPolitician = await Politician.findOne({
+    area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
+    year: 9
+  });
+
+  console.log(prevPolitician);
 
   if (politician) {
     let politicianImage = await getImage(politician.name);
     let politicianVideos = await getVideos(politician.name);
-    console.log(politicianVideos);
 
     getNewsArticles(politician.name).then(media => {
       res.render("profile.hbs", {
         politician,
         articles: media.articles,
-        politicianImage
+        politicianImage,
+        politicianVideos
       });
     });
   } else {
     try {
       const politician = await Politician.findOne({
-        area: query.toUpperCase()
+        area: query.toUpperCase(),
+        year: 19
       });
       if (politician) {
         let politicianImage = await getImage(politician.name);
         let politicianVideos = await getVideos(politician.name);
-        console.log(politicianVideos);
 
         getNewsArticles(politician.name).then(media => {
           res.render("profile.hbs", {
             politician,
             articles: media.articles,
-            politicianImage
+            politicianImage,
+            politicianVideos
           });
         });
       } else

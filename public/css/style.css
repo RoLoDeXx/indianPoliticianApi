@@ -108,7 +108,7 @@ body {
 }
 
 .profile-pic {
-  width: 10rem;
+  width: 50%;
   border-radius: 50%;
   margin: auto;
   border: 2px solid rebeccapurple;
@@ -139,6 +139,13 @@ body {
   border-radius: 5px;
 }
 
+.politicians-media {
+  display: grid;
+  grid-template-areas: 1fr 1fr;
+}
+.h1-responsive {
+  margin: 1rem !important;
+}
 @media only screen and (max-width: 600px) {
   .error-message {
     color: #fcbf04;

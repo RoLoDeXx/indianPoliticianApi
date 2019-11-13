@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const PoliticanSchema = new mongoose.Schema({
+  year: {
+    type: Number,
+    default: 19
+  },
   number: {
     type: Number,
     required: true
