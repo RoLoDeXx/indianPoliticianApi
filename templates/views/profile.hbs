@@ -107,7 +107,12 @@
       <div class="col-sm-8">
         <h1 class="h1-responsive">Analysis</h1>
         <div class="card">
-          <canvas id="myChart"></canvas>
+          <h1 class="h3-responsive p-3 my-1">Criminal cases</h1>
+          <canvas id="casesChart"></canvas>
+
+          <h1 class="h3-responsive p-3 my-1">Financial holdings</h1>
+          <canvas id="financialChart"></canvas>
+
         </div>
       </div>
     </div>
@@ -140,8 +145,8 @@
 
   {{>scripts}}
   <script>
-    let myChart = document.getElementById("myChart")
-    let votesChart = new Chart(myChart, {
+    let casesChart = document.getElementById("casesChart")
+    let Chart1 = new Chart(casesChart, {
       type: "horizontalBar",
       data: {
         labels: ['cases'],
@@ -163,6 +168,38 @@
       borderColor: [
     ],
       borderWidth: 1
+    }]
+      },
+    options: { }
+    })
+
+    let financialChart = document.getElementById("financialChart")
+    let Chart2 = new Chart(financialChart, {
+      type: "horizontalBar",
+      data: {
+        labels: ['Assets', 'Liabilities'],
+        datasets: [{
+          label: 'Previous candidate',
+          data: [{{ prevPoliticianAssets }} * -1 / 10000000, {{ prevPoliticianLiabilities }} * -1 / 10000000],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 99, 132, 0.2)'
+
+      ],
+      borderColor: [
+      ],
+      borderWidth: 1
+    }, {
+      label: 'Current candidate',
+      data: [{{ politicianAssets }} / 10000000, {{ politicianLiabilities }}/10000000],
+    backgroundColor: [
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(54, 162, 235, 0.2)'
+
+    ],
+      borderColor: [
+      ],
+        borderWidth: 1
     }]
       },
     options: { }

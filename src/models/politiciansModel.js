@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const PoliticanSchema = new mongoose.Schema({
   year: {
-    type: Number,
+    type: String,
     default: 19
   },
   number: {
-    type: Number,
+    type: String,
     required: true
   },
   name: {
@@ -24,7 +24,7 @@ const PoliticanSchema = new mongoose.Schema({
     trim: true
   },
   cases: {
-    type: Number,
+    type: String,
     default: 0
   },
   education: {
@@ -38,6 +38,31 @@ const PoliticanSchema = new mongoose.Schema({
     trim: true
   },
   liabilities: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Debates: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Private_Member_Bills: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Questions: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  Attendance: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  State_s_Private_Member_Bills_average: {
     type: String,
     required: true,
     trim: true

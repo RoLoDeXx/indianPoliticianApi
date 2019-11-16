@@ -39,6 +39,9 @@ const searchBy = async (req, res, next) => {
         politicianLiabilities: parseInt(
           politician.liabilities.split("Or")[0].replace(/\,/g, "")
         ),
+        prevPoliticianAssets: parseInt(
+          prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
+        ),
         prevPoliticianLiabilities: parseInt(
           prevPolitician.liabilities.split("Or")[0].replace(/\,/g, "")
         )
@@ -68,7 +71,19 @@ const searchBy = async (req, res, next) => {
             articles: media.articles,
             politicianImage,
             politicianVideos,
-            prevPolitician
+            prevPolitician,
+            politicianAssets: parseInt(
+              politician.assets.split("Or")[0].replace(/\,/g, "")
+            ),
+            politicianLiabilities: parseInt(
+              politician.liabilities.split("Or")[0].replace(/\,/g, "")
+            ),
+            prevPoliticianAssets: parseInt(
+              prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
+            ),
+            prevPoliticianLiabilities: parseInt(
+              prevPolitician.liabilities.split("Or")[0].replace(/\,/g, "")
+            )
           });
         });
       } else
