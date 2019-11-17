@@ -84,7 +84,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rebeccapurple;
+  background: #ff9800;
   border-radius: 10px;
 }
 
@@ -103,15 +103,15 @@ body {
 }
 
 .card-body a {
-  color: #f9d534 !important;
-  background: rebeccapurple !important;
+  color: black !important;
+  background: #ff9800 !important;
 }
 
 .profile-pic {
   width: 50%;
   border-radius: 50%;
   margin: auto;
-  border: 2px solid rebeccapurple;
+  border: 2px solid #ff9800;
   margin-top: 1rem;
 }
 
@@ -119,7 +119,7 @@ body {
 .far,
 .fas {
   font-family: "Font Awesome 5 Free";
-  color: rebeccapurple;
+  color: #ff9800;
 }
 
 .controls-top {

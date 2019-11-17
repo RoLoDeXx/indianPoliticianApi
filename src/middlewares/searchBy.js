@@ -10,7 +10,7 @@ const searchBy = async (req, res, next) => {
 
   const politician = await Politician.findOne({
     name,
-    year: 19
+    year: "19"
   });
 
   if (politician) {
@@ -18,7 +18,7 @@ const searchBy = async (req, res, next) => {
 
     const prevPolitician = await Politician.findOne({
       area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
-      year: 9
+      year: "9"
     });
     console.log(parseInt(politician.assets.split("Or")[0].replace(/\,/g, "")));
     console.log(prevPolitician);
@@ -39,11 +39,17 @@ const searchBy = async (req, res, next) => {
         politicianLiabilities: parseInt(
           politician.liabilities.split("Or")[0].replace(/\,/g, "")
         ),
+        politicianAttendance: parseInt(
+          politician.Attendance.replace(/\,/g, "")
+        ),
         prevPoliticianAssets: parseInt(
           prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
         ),
         prevPoliticianLiabilities: parseInt(
           prevPolitician.liabilities.split("Or")[0].replace(/\,/g, "")
+        ),
+        prevPoliticianAttendance: parseInt(
+          prevPolitician.Attendance.replace(/\,/g, "")
         )
       });
     });
@@ -51,7 +57,7 @@ const searchBy = async (req, res, next) => {
     try {
       const politician = await Politician.findOne({
         area: query.toUpperCase(),
-        year: 19
+        year: "19"
       });
 
       if (politician) {
@@ -59,7 +65,7 @@ const searchBy = async (req, res, next) => {
 
         const prevPolitician = await Politician.findOne({
           area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
-          year: 9
+          year: "9"
         });
 
         let politicianImage = await getImage(politician.name);
@@ -78,11 +84,17 @@ const searchBy = async (req, res, next) => {
             politicianLiabilities: parseInt(
               politician.liabilities.split("Or")[0].replace(/\,/g, "")
             ),
+            politicianAttendance: parseInt(
+              politician.Attendance.replace(/\,/g, "")
+            ),
             prevPoliticianAssets: parseInt(
               prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
             ),
             prevPoliticianLiabilities: parseInt(
               prevPolitician.liabilities.split("Or")[0].replace(/\,/g, "")
+            ),
+            prevPoliticianAttendance: parseInt(
+              prevPolitician.Attendance.replace(/\,/g, "")
             )
           });
         });
@@ -92,7 +104,7 @@ const searchBy = async (req, res, next) => {
         });
     } catch (error) {
       return res.render("404.hbs", {
-        message: "Politician not found"
+        message: "Politician data"
       });
     }
   }

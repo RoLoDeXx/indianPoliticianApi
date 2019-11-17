@@ -109,16 +109,15 @@
         <div class="card">
           <h1 class="h3-responsive p-3 my-1">Criminal cases</h1>
           <canvas id="casesChart"></canvas>
-
-          <h1 class="h3-responsive p-3 my-1">Financial holdings</h1>
-          <canvas id="financialChart"></canvas>
-
+          <canvas id="attendanceChart"></canvas>
+          <a href="#" class="btn btn-primary ">Detailed comparsion</a>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="articles col-sm-6">
         <h1 class="h1-responsive">News</h1>
+
 
         {{#each articles}}
         <div class="card">
@@ -149,59 +148,40 @@
     let Chart1 = new Chart(casesChart, {
       type: "horizontalBar",
       data: {
-        labels: ['cases'],
+        labels: ['Previous Candidate', 'Current candidate'],
         datasets: [{
-          label: 'Previous candidate',
-          data: [{{ prevPolitician.cases }} * -1],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)'
-        ],
-        borderColor: [
-        ],
-        borderWidth: 1
-      }, {
-      label: 'Current candidate',
-      data: [{{ politician.cases }}],
+          label: 'Candidates',
+          data: [{{ prevPolitician.cases }}, {{ politician.cases }}, 0],
       backgroundColor: [
-      'rgba(54, 162, 235, 0.2)'
-    ],
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)'
+      ],
       borderColor: [
-    ],
+      ],
       borderWidth: 1
     }]
       },
     options: { }
     })
 
-    let financialChart = document.getElementById("financialChart")
-    let Chart2 = new Chart(financialChart, {
+    let attendanceChart = document.getElementById("attendanceChart")
+    let Chart2 = new Chart(attendanceChart, {
       type: "horizontalBar",
       data: {
-        labels: ['Assets', 'Liabilities'],
+        labels: ['Previous Candidate', 'Current Candidate'],
         datasets: [{
-          label: 'Previous candidate',
-          data: [{{ prevPoliticianAssets }} * -1 / 10000000, {{ prevPoliticianLiabilities }} * -1 / 10000000],
+          label: 'Parliament Attendance %',
+          data: [{{ prevPoliticianAttendance }}, {{ politicianAttendance }}, 0],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
-        'rgba(255, 99, 132, 0.2)'
+        'rgba(54, 162, 235, 0.2)'
 
       ],
       borderColor: [
       ],
       borderWidth: 1
-    }, {
-      label: 'Current candidate',
-      data: [{{ politicianAssets }} / 10000000, {{ politicianLiabilities }}/10000000],
-    backgroundColor: [
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(54, 162, 235, 0.2)'
-
-    ],
-      borderColor: [
-      ],
-        borderWidth: 1
     }]
-      },
+    },
     options: { }
     })
   </script>

@@ -11,19 +11,19 @@ router.get("/", async (req, res) => {
   res.render("home.hbs");
 });
 
-// router.get("/build", (req, res) => {
-//   politicsData.forEach(element => {
-//     const politicsEl = new Politician(element);
-//     politicsEl
-//       .save()
-//       .then(() => {
-//         console.log("db mai save ho gaye honge");
-//       })
-//       .catch(e => {
-//         console.log(e) + "something fucked up";
-//       });
-//   });
-// });
+router.get("/build", (req, res) => {
+  politicsData.forEach(element => {
+    const politicsEl = new Politician(element);
+    politicsEl
+      .save()
+      .then(() => {
+        console.log("db mai save ho gaye honge");
+      })
+      .catch(e => {
+        console.log(e) + "something fucked up";
+      });
+  });
+});
 
 router.get("/politicians", async (req, res) => {
   res.render("search");
