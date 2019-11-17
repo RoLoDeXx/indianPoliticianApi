@@ -43,8 +43,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h1 class="h1-responsive">Bio</h1>
         <div class="card">
+          <h1 class="h1-responsive">Bio</h1>
           <img class="card-img-top profile-pic" src={{politicianImage}}>
           <div class="card-body">
             <h4 class="card-title">{{politcian.name}}</h4>
@@ -105,41 +105,59 @@
         </div>
       </div>
       <div class="col-sm-8">
-        <h1 class="h1-responsive">Analysis</h1>
         <div class="card">
+          <h1 class="h1-responsive">Analysis</h1>
           <h1 class="h3-responsive p-3 my-1">Criminal cases</h1>
           <canvas id="casesChart"></canvas>
           <canvas id="attendanceChart"></canvas>
-          <a href="#" class="btn btn-primary ">Detailed comparsion</a>
+          <a href="#" class="btn btn-primary view-detailed">Detailed comparsion</a>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="articles col-sm-6">
-        <h1 class="h1-responsive">News</h1>
+
+      <ul class="nav nav-tabs mx-auto mt-3 justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">News</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Youtube</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false">Twitter</a>
+        </li>
+      </ul>
 
 
-        {{#each articles}}
-        <div class="card">
-          <img class=" card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%; height:420">
-          <div class="card-body">
-            <h4 class="card-title">{{this.title}}</h4>
-            <a href="#" class="btn btn-primary ">See Profile</a>
+      <div class="tab-content" id="myTabContent" style="width: 100%;">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          {{#each articles}}
+          <div class="card">
+            <img class=" card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%; height:420">
+            <div class="card-body">
+              <h4 class="card-title">{{this.title}}</h4>
+              <a href="#" class="btn btn-primary ">See Profile</a>
+            </div>
           </div>
+          {{/each}}
         </div>
-        {{/each}}
+
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          {{#each politicianVideos}}
+          <iframe width="100%" height="450" class="youtube-frame"
+            src="https://www.youtube.com/embed/{{this.id.videoId}}">
+          </iframe>
+          {{/each}}
+        </div>
+
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
-
-      <div class="videos col-sm-6">
-        <h1 class="h1-responsive">Youtube</h1>
-
-        {{#each politicianVideos}}
-        <iframe width="100%" height="420" class="youtube-frame" src="https://www.youtube.com/embed/{{this.id.videoId}}">
-        </iframe>
-        {{/each}}
-      </div>
-
     </div>
+
   </div>
 
   {{>scripts}}

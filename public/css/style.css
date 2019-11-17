@@ -22,6 +22,12 @@
   font-family: "Lexend Mega", sans-serif !important;
 }
 
+.active {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
 .card-comments img {
   width: 4rem;
 }
@@ -43,15 +49,19 @@
 }
 
 .navbar {
-  background: #0d0a0b !important;
+  background: #fff !important;
 }
 
+.nav-link {
+  color: #000 !important;
+  font-size: 1.25rem !important;
+}
 #site-logo {
   width: 10rem;
 }
 
 .search-query {
-  background: #8d8d8d !important;
+  background: #ffb74d !important;
   border-radius: 50px !important;
   padding-left: 1rem !important;
   border: none !important;
@@ -59,8 +69,8 @@
 }
 
 .on-this-page {
-  color: #fdd835 !important;
-  text-decoration: underline;
+  color: #ff9800 !important;
+  font-weight: 900 !important;
 }
 
 body {
@@ -102,7 +112,8 @@ body {
   overflow-y: scroll;
 }
 
-.card-body a {
+.card-body a,
+.view-detailed {
   color: black !important;
   background: #ff9800 !important;
 }
@@ -166,6 +177,12 @@ body {
     transform: translate(-50%, -100%);
     font-size: 1rem;
     font-family: "Lexend Mega", sans-serif !important;
+  }
+
+  .active {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.75rem;
   }
 }
 
