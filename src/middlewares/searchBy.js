@@ -42,6 +42,7 @@ const searchBy = async (req, res, next) => {
         politicianAttendance: parseInt(
           politician.Attendance.replace(/\,/g, "")
         ),
+        politicianDebates: parseInt(politician.Debates.replace(/\,/g, "")),
         prevPoliticianAssets: parseInt(
           prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
         ),
@@ -50,6 +51,15 @@ const searchBy = async (req, res, next) => {
         ),
         prevPoliticianAttendance: parseInt(
           prevPolitician.Attendance.replace(/\,/g, "")
+        ),
+        prevPoliticianDebates: parseInt(
+          prevPolitician.Debates.replace(/\,/g, "")
+        ),
+        prevPoliticianStates: parseInt(
+          prevPolitician.State_s_Private_Member_Bills_average.replace(/\,/g, "")
+        ),
+        politicianStates: parseInt(
+          politician.State_s_Private_Member_Bills_average.replace(/\,/g, "")
         )
       });
     });
@@ -87,6 +97,7 @@ const searchBy = async (req, res, next) => {
             politicianAttendance: parseInt(
               politician.Attendance.replace(/\,/g, "")
             ),
+            politicianDebates: parseInt(politician.Debates.replace(/\,/g, "")),
             prevPoliticianAssets: parseInt(
               prevPolitician.assets.split("Or")[0].replace(/\,/g, "")
             ),
@@ -95,6 +106,18 @@ const searchBy = async (req, res, next) => {
             ),
             prevPoliticianAttendance: parseInt(
               prevPolitician.Attendance.replace(/\,/g, "")
+            ),
+            prevPoliticianDebates: parseInt(
+              prevPolitician.Debates.replace(/\,/g, "")
+            ),
+            prevPoliticianStates: parseInt(
+              prevPolitician.State_s_Private_Member_Bills_average.replace(
+                /\,/g,
+                ""
+              )
+            ),
+            politicianStates: parseInt(
+              politician.State_s_Private_Member_Bills_average.replace(/\,/g, "")
             )
           });
         });

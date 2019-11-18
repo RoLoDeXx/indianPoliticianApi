@@ -118,12 +118,16 @@ body {
   background: #ff9800 !important;
 }
 
+.orange-br {
+  border: 2px solid orange !important;
+}
+
 .profile-pic {
   width: 50%;
   border-radius: 50%;
   margin: auto;
   border: 2px solid #ff9800;
-  margin-top: 1rem;
+  margin-top: -5rem;
 }
 
 .fa,
@@ -196,8 +200,8 @@ body {
 .search-right-box {
   cursor: pointer;
   background: transparent;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
 }
 
 .form-control {

@@ -6,7 +6,7 @@
 <body>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mb-5">
       <nav class="navbar navbar-expand-lg navbar-dark primary-color">
         <a class="navbar-brand" href="/"><img id="site-logo" src="/images/Capture3.PNG"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -41,10 +41,9 @@
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div class="card">
-          <h1 class="h1-responsive">Bio</h1>
+    <div class="row mt-5 justify-content-center">
+      <div class="col-sm-4 ">
+        <div class="card orange-br">
           <img class="card-img-top profile-pic" src={{politicianImage}}>
           <div class="card-body">
             <h4 class="card-title">{{politcian.name}}</h4>
@@ -104,19 +103,25 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-8">
+    </div>
+    <div class="row mt-4">
+      <div class="col-sm-12">
         <div class="card">
-          <h1 class="h1-responsive">Analysis</h1>
-          <h1 class="h3-responsive p-3 my-1">Criminal cases</h1>
-          <canvas id="casesChart"></canvas>
-          <canvas id="attendanceChart"></canvas>
-          <a href="#" class="btn btn-primary view-detailed">Detailed comparsion</a>
+          <h1 class="h1-responsive">Scorecard</h1>
+          <div class="container">
+            <canvas id="casesChart"></canvas>
+            <canvas id="attendanceChart"></canvas>
+            <canvas id="debatesChart"></canvas>
+            <canvas id="statesChart"></canvas>
+          </div>
+          <a href="#" class="btn btn-primary view-detailed">Detailed analysis</a>
         </div>
       </div>
     </div>
+
     <div class="row">
 
-      <ul class="nav nav-tabs mx-auto mt-3 justify-content-center" id="myTab" role="tablist">
+      <ul class="nav nav-tabs mx-auto mt-4 justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
             aria-selected="true">News</a>
@@ -164,15 +169,15 @@
   <script>
     let casesChart = document.getElementById("casesChart")
     let Chart1 = new Chart(casesChart, {
-      type: "horizontalBar",
+      type: "bar",
       data: {
         labels: ['Previous Candidate', 'Current candidate'],
         datasets: [{
-          label: 'Candidates',
+          label: 'Criminal Cases',
           data: [{{ prevPolitician.cases }}, {{ politician.cases }}, 0],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)'
+        'rgba(162, 162, 162, 0.2)',
+        'rgba(255, 145, 0, 0.8)'
       ],
       borderColor: [
       ],
@@ -184,15 +189,15 @@
 
     let attendanceChart = document.getElementById("attendanceChart")
     let Chart2 = new Chart(attendanceChart, {
-      type: "horizontalBar",
+      type: "pie",
       data: {
         labels: ['Previous Candidate', 'Current Candidate'],
         datasets: [{
           label: 'Parliament Attendance %',
           data: [{{ prevPoliticianAttendance }}, {{ politicianAttendance }}, 0],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)'
+        'rgba(162, 162, 162, 0.2)',
+        'rgba(255, 145, 0, 0.8)'
 
       ],
       borderColor: [
@@ -202,6 +207,52 @@
     },
     options: { }
     })
+
+    let debatesChart = document.getElementById("debatesChart")
+    let Chart3 = new Chart(debatesChart, {
+      type: "pie",
+      data: {
+        labels: ['Previous Candidate', 'Current Candidate'],
+        datasets: [{
+          label: 'Debates',
+          data: [{{ prevPoliticianDebates }}, {{ politicianDebates }}, 0],
+      backgroundColor: [
+        'rgba(162, 162, 162, 0.2)',
+        'rgba(255, 145, 0, 0.8)'
+
+      ],
+      borderColor: [
+      ],
+      borderWidth: 1
+    }]
+    },
+    options: { }
+    })
+
+
+    let statesChart = document.getElementById("statesChart")
+    let Chart4 = new Chart(statesChart, {
+      type: "bar",
+      data: {
+        labels: ['Previous Candidate', 'Current Candidate'],
+        datasets: [{
+          label: 'States private bills',
+          data: [{{ prevPoliticianStates }}, {{ politicianStates }}, 0],
+      backgroundColor: [
+        'rgba(162, 162, 162, 0.2)',
+        'rgba(255, 145, 0, 0.8)'
+
+      ],
+      borderColor: [
+      ],
+      borderWidth: 1
+    }]
+    },
+    options: { }
+    })
+
+
+
   </script>
 </body>
 
