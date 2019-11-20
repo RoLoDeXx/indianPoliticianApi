@@ -18,7 +18,7 @@
                             <a class="nav-link " href="/">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link on-this-page" href="/politicians">Politicians</a>
+                            <a class="nav-link on-this-page" href="/politicians/search">Politicians</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link " href="/politicians/compare">Compare</a>
@@ -39,19 +39,29 @@
         </div>
     </div>
 
-
-    <div class="container-fluid col-sm-9 col-md-7 col-lg-5 mx-auto mt-4">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text search-left-box"><i class="far fa-user"></i></span>
-            </div>
-            <input id="searchPolitician" type="text" class="form-control">
-            <div class="input-group-append">
-                <span class="input-group-text search-right-box" id="searchBtn"><i class="fas fa-search"></i></span>
-            </div>
+    <div class="container-fluid col-sm-9 col-md-7 col-lg-8 mx-auto mt-4">
+        <div class="my-3">
+            <form action="#" method="Get" class="d-flex">
+                <input name="searchFeild" id="searchPolitician" type="text" class="form-control">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
         </div>
+        <div class="active">
+            {{#each politicians}}
+            <div class="card">
+                <div class="card-body">
+                    <img class="card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%; height:420">
+                    <h4 class="card-title">{{this.name}}</h4>
+                    <h4 class="card-title">{{this.party}}</h4>
+                    <a href="/politicians/{{this.name}}" class="btn btn-primary ">See Profile</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
     </div>
-    <script src="/js/searchP.js"></script>
     {{>scripts}}
 
 </body>

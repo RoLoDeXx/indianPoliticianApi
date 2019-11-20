@@ -20,7 +20,6 @@ const searchBy = async (req, res, next) => {
       area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
       year: "9"
     });
-    console.log(parseInt(politician.assets.split("Or")[0].replace(/\,/g, "")));
     console.log(prevPolitician);
 
     let politicianImage = await getImage(politician.name);

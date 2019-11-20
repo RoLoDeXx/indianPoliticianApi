@@ -114,8 +114,9 @@ body {
 
 .card-body a,
 .view-detailed {
-  color: black !important;
+  color: white !important;
   background: #ff9800 !important;
+  font-weight: 800;
 }
 
 .orange-br {
@@ -161,6 +162,16 @@ body {
 .h1-responsive {
   margin: 1rem !important;
 }
+
+.search-btn {
+  padding: 0 1rem;
+  border-radius: 50px;
+  border: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background: transparent;
+}
+
 @media only screen and (max-width: 600px) {
   .error-message {
     color: #fcbf04;
@@ -188,23 +199,4 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.75rem;
   }
-}
-
-.search-left-box {
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.search-right-box {
-  cursor: pointer;
-  background: transparent;
-  border-top-right-radius: 50px !important;
-  border-bottom-right-radius: 50px !important;
-}
-
-.form-control {
-  border-right: 0;
-  border-left: 0;
 }

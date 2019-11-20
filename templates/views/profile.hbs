@@ -19,7 +19,7 @@
               <a class="nav-link " href="/">Home </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link on-this-page" href="/politicians">Politicians</a>
+              <a class="nav-link on-this-page" href="/politicians/search">Politicians</a>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="/politicians/compare">Compare</a>
@@ -114,7 +114,8 @@
             <canvas id="debatesChart"></canvas>
             <canvas id="statesChart"></canvas>
           </div>
-          <a href="#" class="btn btn-primary view-detailed">Detailed analysis</a>
+          <a href="/politicians/compare/{{politician.name}}/{{prevPolitician.name}}"
+            class="btn btn-primary view-detailed">{{politician.name}} vs {{prevPolitician.name}}</a>
         </div>
       </div>
     </div>

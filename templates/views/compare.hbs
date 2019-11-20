@@ -18,7 +18,7 @@
                             <a class="nav-link " href="/">Home </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/politicians">Politicians</a>
+                            <a class="nav-link" href="/politicians/search">Politicians</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link on-this-page" href="/politicians/compare">Compare</a>
@@ -39,124 +39,45 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top profile-pic" src={{politicianAImage}} />
-                    <div class="card-body">
-                        <h4 class="card-title">{{politcianA.name}}</h4>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="far fa-user icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianA.name}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-balance-scale"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianA.cases}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-graduation-cap icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianA.education}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="far fa-gem icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i>
-                                    {{politicianA.assets}}
-                                </p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-car"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i>
-                                    {{politicianA.liabilities}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
-                    <img class="card-img-top profile-pic" src={{politicianBImage}} />
-                    <div class="card-body">
-                        <h4 class="card-title">{{politcianB.name}}</h4>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="far fa-user icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianB.name}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-balance-scale"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianB.cases}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-graduation-cap icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style">{{politicianB.education}}</p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="far fa-gem icon-style"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i>
-                                    {{politicianB.assets}}
-                                </p>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <p class="card-text icon-style"><i class="fas fa-car"></i></p>
-                            </div>
-                            <div class="col-sm-11">
-                                <p class="card-title icon-style"><i class="fas fa-rupee-sign"></i>
-                                    {{politicianB.liabilities}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container mt-5">
+        <div class="card">
+            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs {{politicianB.name}}</h1>
+            <div class="container">
+                <canvas id="comparisonChart"></canvas>
             </div>
         </div>
     </div>
     {{>scripts}}
+    <script>
+
+        let comparisonChart = document.getElementById("comparisonChart")
+        let Chart1 = new Chart(comparisonChart, {
+            type: "horizontalBar",
+            data: {
+                labels: ['Criminal Cases', 'Education', "Assets", "Liabilities", "Debates", "Private Bills", "Questions Raised", "Attendance", "State\s Private Bills"],
+                datasets: [{
+                    label: 'Criminal Cases',
+                    data: [5],
+                    backgroundColor: [
+                        'rgba(162, 162, 162, 0.2)'],
+                    borderColor: [
+                    ],
+                    borderWidth: 1
+                }, {
+                    label: 'Criminal Cases',
+                    data: [5],
+                    backgroundColor: [
+                        'rgba(255, 145, 0, 0.8)'
+                    ],
+                    borderColor: [
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {}
+        })
+
+    </script>
 
 </body>
 
