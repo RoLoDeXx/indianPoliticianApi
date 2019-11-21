@@ -11,7 +11,7 @@
         <a class="navbar-brand" href="/"><img id="site-logo" src="/images/Capture3.PNG"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
           aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa fa-bars icon-style"></i>
         </button>
         <div class="collapse navbar-collapse" id="basicExampleNav">
           <ul class="navbar-nav mr-auto">
@@ -115,7 +115,7 @@
             <canvas id="statesChart"></canvas>
           </div>
           <a href="/politicians/compare/{{politician.name}}/{{prevPolitician.name}}"
-            class="btn btn-primary view-detailed">{{politician.name}} vs {{prevPolitician.name}}</a>
+            class="btn btn-primary view-detailed">Detailed Comparison</a>
         </div>
       </div>
     </div>
@@ -178,7 +178,7 @@
           data: [{{ prevPolitician.cases }}, {{ politician.cases }}, 0],
       backgroundColor: [
         'rgba(162, 162, 162, 0.2)',
-        'rgba(255, 145, 0, 0.8)'
+        'rgba(255, 145, 0, 0.2)'
       ],
       borderColor: [
       ],
@@ -190,15 +190,15 @@
 
     let attendanceChart = document.getElementById("attendanceChart")
     let Chart2 = new Chart(attendanceChart, {
-      type: "pie",
+      type: "horizontalBar",
       data: {
-        labels: ['Previous Candidate', 'Current Candidate'],
+        labels: ['Previous Candidate Attendance', 'Current Candidate Attendance'],
         datasets: [{
           label: 'Parliament Attendance %',
           data: [{{ prevPoliticianAttendance }}, {{ politicianAttendance }}, 0],
       backgroundColor: [
         'rgba(162, 162, 162, 0.2)',
-        'rgba(255, 145, 0, 0.8)'
+        'rgba(255, 145, 0, 0.2)'
 
       ],
       borderColor: [
@@ -211,7 +211,7 @@
 
     let debatesChart = document.getElementById("debatesChart")
     let Chart3 = new Chart(debatesChart, {
-      type: "pie",
+      type: "bar",
       data: {
         labels: ['Previous Candidate', 'Current Candidate'],
         datasets: [{
@@ -219,7 +219,7 @@
           data: [{{ prevPoliticianDebates }}, {{ politicianDebates }}, 0],
       backgroundColor: [
         'rgba(162, 162, 162, 0.2)',
-        'rgba(255, 145, 0, 0.8)'
+        'rgba(255, 145, 0, 0.2)'
 
       ],
       borderColor: [
@@ -233,7 +233,7 @@
 
     let statesChart = document.getElementById("statesChart")
     let Chart4 = new Chart(statesChart, {
-      type: "bar",
+      type: "horizontalBar",
       data: {
         labels: ['Previous Candidate', 'Current Candidate'],
         datasets: [{
@@ -241,7 +241,7 @@
           data: [{{ prevPoliticianStates }}, {{ politicianStates }}, 0],
       backgroundColor: [
         'rgba(162, 162, 162, 0.2)',
-        'rgba(255, 145, 0, 0.8)'
+        'rgba(255, 145, 0, 0.2)'
 
       ],
       borderColor: [

@@ -5,6 +5,7 @@ const getNewsArticles = require("../utils/getNewsArticles");
 const getImage = require("../utils/getImage");
 
 const searchBy = async (req, res, next) => {
+  console.log(req.params);
   let query = req.params.query;
   name = query.replace(/\b\w/g, l => l.toUpperCase());
 

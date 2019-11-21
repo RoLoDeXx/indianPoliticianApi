@@ -2,6 +2,9 @@
 <html lang="en">
 
 {{>head}}
+<p id="prev" style="display:none">{{politicianB.name}}</p>
+<p id="curr" style="display:none">{{politicianA.name}}</p>
+
 
 <body>
     <div class="row">
@@ -10,7 +13,7 @@
                 <a class="navbar-brand" href="/"><img id="site-logo" src="/images/Capture3.PNG"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
                     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <i class="fa fa-bars icon-style"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="basicExampleNav">
                     <ul class="navbar-nav mr-auto">
@@ -41,41 +44,202 @@
 
     <div class="container mt-5">
         <div class="card">
-            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs {{politicianB.name}}</h1>
+            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs
+            </h1>
             <div class="container">
-                <canvas id="comparisonChart"></canvas>
+                <canvas id="Cases1"></canvas>
+                <canvas id="Assets1"></canvas>
+                <canvas id="Liabilities1"></canvas>
+                <canvas id="Debates1"></canvas>
+                <canvas id="PrivateBills1"></canvas>
+                <canvas id="Questions1"></canvas>
+                <canvas id="Attendance1"></canvas>
             </div>
         </div>
     </div>
+
+    {{!-- <div class="container mt-5">
+        <div class="card">
+            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs Average Politician</h1>
+            <div class="container">
+                <canvas id="Cases2"></canvas>
+                <canvas id="Assets2"></canvas>
+                <canvas id="Liabilities2"></canvas> 
+                <canvas id="Debates2"></canvas> 7.7 
+                <canvas id="PrivateBills2"></canvas> 0.2
+                <canvas id="QuestionsInteracted2"></canvas> 18  
+                <canvas id="Attendance2"></canvas> 88
+            </div>
+        </div>
+    </div> --}}
+
     {{>scripts}}
     <script>
+        let name1 = document.getElementById("curr").textContent
+        let name2 = document.getElementById("prev").textContent
+        if (name2.length > 15) {
+            let temp = name2.split(" ")
+            name2 = temp[temp.length - 1]
+        }
 
-        let comparisonChart = document.getElementById("comparisonChart")
-        let Chart1 = new Chart(comparisonChart, {
-            type: "horizontalBar",
+        let Cases1 = document.getElementById("Cases1")
+        let Chart1 = new Chart(Cases1, {
+            type: "bar",
             data: {
-                labels: ['Criminal Cases', 'Education', "Assets", "Liabilities", "Debates", "Private Bills", "Questions Raised", "Attendance", "State\s Private Bills"],
+                labels: [name1, name2, "Average"],
                 datasets: [{
                     label: 'Criminal Cases',
-                    data: [5],
-                    backgroundColor: [
-                        'rgba(162, 162, 162, 0.2)'],
-                    borderColor: [
-                    ],
-                    borderWidth: 1
-                }, {
-                    label: 'Criminal Cases',
-                    data: [5],
-                    backgroundColor: [
-                        'rgba(255, 145, 0, 0.8)'
-                    ],
-                    borderColor: [
-                    ],
-                    borderWidth: 1
+                    data: [{{ A_Cases }}, {{ B_Cases }}, 5, 0],
+            backgroundColor: [
+                'rgba(255, 145, 0, 0.8)',
+                'rgb(54, 162, 235 , 0.8)',
+                'rgba(162, 162, 162, 0.2)'
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+      },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function (value) { if (value % 1 === 0) { return value; } }
+                    }
                 }]
-            },
-            options: {}
-        })
+            }
+        }
+    })
+
+        let Assets1 = document.getElementById("Assets1")
+        let Chart2 = new Chart(Assets1, {
+            type: "horizontalBar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: 'Financial Assets ₹',
+                    data: [{{ A_Assets }}, {{ B_Assets }}, 12000, 0],
+            backgroundColor: [
+                'rgba(255, 145, 0, 0.8)',
+                'rgb(54, 162, 235 , 0.8)',
+                'rgba(162, 162, 162, 0.2)'
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+      },
+        options: { }
+    })
+
+        let Liabilities1 = document.getElementById("Liabilities1")
+        let Chart3 = new Chart(Liabilities1, {
+            type: "horizontalBar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: 'Liabilities ₹',
+                    data: [{{ A_Liabilities }}, {{ B_Liabilities }}, 555000, 0],
+            backgroundColor: [
+                'rgba(255, 145, 0, 0.8)',
+                'rgb(54, 162, 235 , 0.8)',
+                'rgba(162, 162, 162, 0.2)'
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+      },
+        options: { }
+    })
+
+        let Attendance1 = document.getElementById("Attendance1")
+        let Chart4 = new Chart(Attendance1, {
+            type: "horizontalBar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: 'Attendance %',
+                    data: [{{ A_Attendance }}, {{ B_Attendance }}, 88, 0],
+            backgroundColor: [
+                'rgba(255, 145, 0, 0.8)',
+                'rgb(54, 162, 235 , 0.8)',
+                'rgba(162, 162, 162, 0.2)'
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+      },
+        options: { }
+    })
+
+        let Debates1 = document.getElementById("Debates1")
+        let Chart5 = new Chart(Debates1, {
+            type: "horizontalBar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: "Debates",
+                    data: [{{ A_Debates }}, Math.ceil({{ B_Debates }} / 12), 18, 0],
+        backgroundColor: [
+            'rgba(255, 145, 0, 0.8)',
+            'rgb(54, 162, 235 , 0.8)',
+            'rgba(162, 162, 162, 0.2)'
+        ],
+            borderColor: [
+            ],
+                borderWidth: 1
+        }]
+      },
+        options: { }
+    })
+
+        let PrivateBills1 = document.getElementById("PrivateBills1")
+        let Chart6 = new Chart(PrivateBills1, {
+            type: "bar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: 'Private member Bills',
+                    data: [{{ A_Bills }}, {{ A_Bills }}, 0.2, 0],
+            backgroundColor: [
+                'rgba(255, 145, 0, 0.8)',
+                'rgb(54, 162, 235 , 0.8)',
+                'rgba(162, 162, 162, 0.2)'
+            ],
+            borderColor: [
+            ],
+            borderWidth: 1
+        }]
+      },
+        options: {
+
+        }
+    })
+
+        let Questions1 = document.getElementById("Questions1")
+        let Chart7 = new Chart(Questions1, {
+            type: "horizontalBar",
+            data: {
+                labels: [name1, name2, "Average"],
+                datasets: [{
+                    label: "Questions",
+                    data: [{{ A_Questions }}, Math.ceil({{ B_Questions }} / 12), 18, 0],
+        backgroundColor: [
+            'rgba(255, 145, 0, 0.8)',
+            'rgb(54, 162, 235 , 0.8)',
+            'rgba(162, 162, 162, 0.2)'
+        ],
+            borderColor: [
+            ],
+                borderWidth: 1
+        }]
+      },
+        options: { }
+    })
+
 
     </script>
 
