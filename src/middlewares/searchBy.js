@@ -23,7 +23,6 @@ const searchBy = async (req, res, next) => {
     let politicianImage = await getImage(politician.name);
     let politicianVideos = await getVideos(politician.name);
     let media = await getNewsArticles(politician.name);
-    console.log(media);
 
     res.render("profile.hbs", {
       politician,

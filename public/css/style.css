@@ -124,7 +124,9 @@ body {
 }
 
 .profile-pic {
-  width: 50%;
+  object-fit: cover;
+  height: 130px;
+  width: 130px;
   border-radius: 50%;
   margin: auto;
   border: 2px solid #ff9800;
