@@ -25,7 +25,7 @@
               <a class="nav-link " href="/politicians/compare">Compare</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
+              <a class="nav-link" href="/disclaimer">Disclaimer</a>
             </li>
 
           </ul>
@@ -121,7 +121,6 @@
     </div>
 
     <div class="row">
-
       <ul class="nav nav-tabs mx-auto mt-4 justify-content-center" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -142,10 +141,14 @@
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           {{#each articles}}
           <div class="card">
+            {{#if urlToImage}}
             <img class=" card-img-top" src={{this.urlToImage}} alt="Card image" style="width:100%; height:420">
+            {{else}}
+            <img class=" card-img-top" src="./images/notFound.png" alt="Card image" style="width:100%; height:420">
+            {{/if}}
             <div class="card-body">
               <h4 class="card-title">{{this.title}}</h4>
-              <a href="#" class="btn btn-primary ">See Profile</a>
+              <a href={{this.url}} class="btn btn-primary ">See Profile</a>
             </div>
           </div>
           {{/each}}
@@ -163,6 +166,24 @@
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
       </div>
     </div>
+
+    <div class="row mt-4">
+      <div class="col-sm-12">
+        <div class="card">
+          <h1 class="h1-responsive">Public Ratings</h1>
+          <div class="container">
+            <canvas id="casesChart"></canvas>
+            <canvas id="attendanceChart"></canvas>
+            <canvas id="debatesChart"></canvas>
+            <canvas id="statesChart"></canvas>
+          </div>
+          <a href="#" class="btn btn-primary view-detailed">
+            Show ratings
+          </a>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 

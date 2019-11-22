@@ -8,7 +8,7 @@ const politicsData = require("../utils/data.json");
 
 const router = new express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", (req, res) => {
   res.render("home.hbs");
 });
 
@@ -25,6 +25,10 @@ router.get("/", async (req, res) => {
 //       });
 //   });
 // });
+
+router.get("/disclaimer", (req, res) => {
+  res.render("disclaimer.hbs");
+});
 
 router.get("/politicians/search", search, async (req, res) => {});
 
