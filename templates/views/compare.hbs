@@ -44,8 +44,13 @@
 
     <div class="container mt-5">
         <div class="card">
-            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs
+            <h1 class="h1-responsive text-center">{{politicianA.name}} Vs {{politicianB.name}}
             </h1>
+            <div class="d-flex justify-content-around">
+                <img class=" profile-pic mt-1" src={{politicianAImage}} alt={{politicianA.name}}>
+                <img class=" profile-pic mt-1" src={{politicianBImage}} alt={{politicianB.name}}>
+            </div>
+
             <div class="container">
                 <canvas id="Cases1"></canvas>
                 <canvas id="Assets1"></canvas>
@@ -242,7 +247,7 @@
 
 
     </script>
-
+    {{>footer}}
 </body>
 
 </html>

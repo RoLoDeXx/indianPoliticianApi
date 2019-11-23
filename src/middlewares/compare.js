@@ -7,13 +7,11 @@ const compare = async (req, res, next) => {
 
   try {
     let politicianA = await Politician.findOne({
-      name: candidateA,
-      year: "19"
+      name: candidateA
     });
 
     let politicianB = await Politician.findOne({
-      name: candidateB,
-      year: "9"
+      name: candidateB
     });
     console.log("A", politicianA);
 

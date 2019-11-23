@@ -1,10 +1,12 @@
 const express = require("express");
 const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
+// const politicsData = require("../utils/data.json");
+
 const searchBy = require("../middlewares/searchBy");
 const search = require("../middlewares/search");
 const compare = require("../middlewares/compare");
-const politicsData = require("../utils/data.json");
+const ddCompare = require("../middlewares/ddCompare");
 
 const router = new express.Router();
 
@@ -32,9 +34,7 @@ router.get("/disclaimer", (req, res) => {
 
 router.get("/politicians/search", search, async (req, res) => {});
 
-router.get("/politicians/compare", async (req, res) => {
-  res.send("compare search will come here");
-});
+router.get("/politicians/compare", ddCompare, (req, res) => {});
 
 router.get("/politicians/:query", searchBy, async (req, res) => {});
 
