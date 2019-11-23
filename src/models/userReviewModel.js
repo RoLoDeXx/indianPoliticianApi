@@ -10,11 +10,6 @@ const UserReviewSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  name: {
-    type: String,
-    trim: true,
-    required: true
-  },
   politicianName: {
     type: String,
     trim: true

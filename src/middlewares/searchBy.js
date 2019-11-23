@@ -1,10 +1,13 @@
 const Politician = require("../models/politiciansModel");
-const Reviws = require("../models/userReviewModel");
+const Review = require("../models/userReviewModel");
 const getVideos = require("../utils/getVideos");
 const getNewsArticles = require("../utils/getNewsArticles");
 const getImage = require("../utils/getImage");
 
 const searchBy = async (req, res, next) => {
+  // const politicsEl = new Politician(element);
+  // politicsEl;
+
   let query = req.params.query;
   name = query.replace(/\b\w/g, l => l.toUpperCase());
 
@@ -12,6 +15,34 @@ const searchBy = async (req, res, next) => {
     name,
     year: "19"
   });
+
+  try {
+    let {
+      integrity,
+      intelligence,
+      resilience,
+      honesty,
+      diplomacy,
+      userEmail,
+      userNumber
+    } = req.query;
+
+    let review = new Review({
+      email: userEmail,
+      number: userNumber,
+      politicianName: req.params.query.replace(/\b\w/g, l => l.toUpperCase()),
+      integrity,
+      intelligence,
+      resilience,
+      honesty,
+      diplomacy
+    });
+
+    let response = await review.save();
+    console.log(response);
+  } catch (e) {
+    console.log(e);
+  }
 
   if (politician) {
     let currPoliArea = politician.area.toLowerCase();

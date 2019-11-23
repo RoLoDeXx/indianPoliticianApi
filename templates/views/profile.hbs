@@ -169,22 +169,55 @@
 
     <div class="row mt-4">
       <div class="col-sm-12">
-        <div class="card">
+        <div class="card container">
           <h1 class="h1-responsive">Public Ratings</h1>
-          <div class="container">
-            <canvas id="casesChart"></canvas>
-            <canvas id="attendanceChart"></canvas>
-            <canvas id="debatesChart"></canvas>
-            <canvas id="statesChart"></canvas>
-          </div>
-          <a href="#" class="btn btn-primary view-detailed">
-            Show ratings
-          </a>
+          <form action="" id="ratingsForm">
+            <p>Integrity</p>
+            <div class="d-flex">
+              <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
+              <input type="range" class="custom-range" min="0" max="5" name="integrity">
+              <span class="font-weight-bold indigo-text ml-2 mt-1">5</span>
+            </div>
+
+            <p>Intelligence</p>
+            <div class="d-flex">
+              <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
+              <input type="range" class="custom-range" min="0" max="5" name="intelligence">
+              <span class="font-weight-bold indigo-text ml-2 mt-1">5</span>
+            </div>
+
+            <p>Resilience</p>
+            <div class="d-flex">
+              <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
+              <input type="range" class="custom-range" min="0" max="5" name="resilience">
+              <span class="font-weight-bold indigo-text ml-2 mt-1">5</span>
+            </div>
+
+            <p>Honesty</p>
+            <div class="d-flex">
+              <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
+              <input type="range" class="custom-range" min="0" max="5" name="honesty">
+              <span class="font-weight-bold indigo-text ml-2 mt-1">5</span>
+            </div>
+
+            <p>Diplomacy</p>
+            <div class="d-flex">
+              <span class="font-weight-bold indigo-text mr-2 mt-1">0</span>
+              <input type="range" class="custom-range" min="0" max="5" name="diplomacy">
+              <span class="font-weight-bold indigo-text ml-2 mt-1">5</span>
+            </div>
+
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" name="userEmail" required>
+
+            <label for="number">Number</label>
+            <input type="text" class="form-control" id="number" name="userNumber" required>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         </div>
       </div>
     </div>
-
-
   </div>
 
   {{>scripts}}
@@ -193,7 +226,7 @@
     let Chart1 = new Chart(casesChart, {
       type: "bar",
       data: {
-        labels: ['Previous Candidate', 'Current candidate'],
+        labels: ['Previous Neta', 'Current Neta'],
         datasets: [{
           label: 'Criminal Cases',
           data: [{{ prevPolitician.cases }}, {{ politician.cases }}, 0],
@@ -213,7 +246,7 @@
     let Chart2 = new Chart(attendanceChart, {
       type: "horizontalBar",
       data: {
-        labels: ['Previous Candidate Attendance', 'Current Candidate Attendance'],
+        labels: ['Previous Neta', 'Current Neta'],
         datasets: [{
           label: 'Parliament Attendance %',
           data: [{{ prevPoliticianAttendance }}, {{ politicianAttendance }}, 0],
@@ -234,7 +267,7 @@
     let Chart3 = new Chart(debatesChart, {
       type: "bar",
       data: {
-        labels: ['Previous Candidate', 'Current Candidate'],
+        labels: ['Previous Neta', 'Current Neta'],
         datasets: [{
           label: 'Debates',
           data: [{{ prevPoliticianDebates }}, {{ politicianDebates }}, 0],
@@ -256,7 +289,7 @@
     let Chart4 = new Chart(statesChart, {
       type: "horizontalBar",
       data: {
-        labels: ['Previous Candidate', 'Current Candidate'],
+        labels: ['Previous Neta', 'Current Neta'],
         datasets: [{
           label: 'States private bills',
           data: [{{ prevPoliticianStates }}, {{ politicianStates }}, 0],
