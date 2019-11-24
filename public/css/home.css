@@ -42,7 +42,7 @@ img {
   padding: 0 2rem;
 }
 
-.container {
+.gridder {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
