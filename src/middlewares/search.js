@@ -2,9 +2,17 @@ const Politician = require("../models/politiciansModel");
 
 const search = async (req, res, next) => {
   let query = req.query.searchFeild;
-  if (query === "" || query === undefined) {
+  let byArea = req.query.switch;
+
+  if (byArea) {
+    let response = await Politician.find({
+      area: { $regex: query, $options: "i" },
+      year: "19"
+    });
+
     res.render("search", {
-      matches: 0
+      matches: response.length,
+      politicians: response
     });
   } else {
     let response = await Politician.find({
@@ -12,12 +20,10 @@ const search = async (req, res, next) => {
       year: "19"
     });
 
-    if (response) {
-      res.render("search", {
-        matches: response.length,
-        politicians: response
-      });
-    }
+    res.render("search", {
+      matches: response.length,
+      politicians: response
+    });
   }
   next();
 };

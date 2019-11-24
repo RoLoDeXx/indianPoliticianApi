@@ -41,14 +41,20 @@
 
     <div class="container-fluid col-sm-9 col-md-7 col-lg-8 mx-auto mt-4 flex-grow-1">
         <div class="my-3">
-            <form action="#" method="Get" class="d-flex">
-                <input name="searchFeild" id="searchPolitician" type="text" class="form-control">
-                <button type="submit" class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+            <form action="#" method="Get">
+                <div class="d-flex">
+                    <input name="searchFeild" id="searchPolitician" type="text" class="form-control">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
 
-            <p>{{matches}} results found</p>
+                <div class="custom-control custom-switch mt-1">
+                    <input name="switch" type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Search by area</label>
+                </div>
+            </form>
+            <p class="mt-3">{{matches}} results found</p>
         </div>
         <div class="active">
             {{#each politicians}}
