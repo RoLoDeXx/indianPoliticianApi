@@ -1,5 +1,4 @@
 const Politician = require("../models/politiciansModel");
-const getImage = require("../utils/getImage");
 
 const search = async (req, res, next) => {
   let query = req.query.searchFeild;
@@ -19,7 +18,6 @@ const search = async (req, res, next) => {
         politicians: response
       });
     }
-    console.log(response);
   }
   next();
 };

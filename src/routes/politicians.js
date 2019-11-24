@@ -40,4 +40,8 @@ router.get("/politicians/:query", searchBy, async (req, res) => {});
 
 router.get("/politicians/compare/:a/:b", compare, async (req, res) => {});
 
+router.get("/politicians", (req, res) => {
+  res.render("error");
+});
+
 module.exports = router;

@@ -182,6 +182,18 @@ body {
   background: transparent;
 }
 
+.error-logo {
+  width: 10rem;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.error-symbol {
+  width: 35rem !important;
+  max-width: 100%;
+  margin: auto;
+}
+
 @media only screen and (max-width: 600px) {
   .error-message {
     color: #fcbf04;

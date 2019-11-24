@@ -39,9 +39,8 @@ const searchBy = async (req, res, next) => {
     });
 
     let response = await review.save();
-    console.log(response);
   } catch (e) {
-    console.log(e);
+    res.render("error.hbs");
   }
 
   if (politician) {
@@ -141,9 +140,7 @@ const searchBy = async (req, res, next) => {
         )
       });
     } catch (error) {
-      // return res.render("500.hbs", {
-      //   message: "Internal server error"
-      // });
+      res.render("error.hbs");
     }
   }
 

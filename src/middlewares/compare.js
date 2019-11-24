@@ -13,9 +13,6 @@ const compare = async (req, res, next) => {
     let politicianB = await Politician.findOne({
       name: candidateB
     });
-    console.log("A", politicianA);
-
-    console.log("B", politicianB);
 
     if (politicianA === null || politicianB === null)
       return res.render("404", {
@@ -53,8 +50,7 @@ const compare = async (req, res, next) => {
       politicianBImage
     });
   } catch (e) {
-    res.status(400).send("politicans not found");
-    console.log(e);
+    res.render("error.hbs");
   }
   next();
 };
