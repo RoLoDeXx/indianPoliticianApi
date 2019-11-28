@@ -3,6 +3,7 @@ const Review = require("../models/userReviewModel");
 const getVideos = require("../utils/getVideos");
 const getNewsArticles = require("../utils/getNewsArticles");
 const getImage = require("../utils/getImage");
+const getTweets = require("../utils/getTweets");
 
 const searchBy = async (req, res, next) => {
   // const politicsEl = new Politician(element);
@@ -40,7 +41,7 @@ const searchBy = async (req, res, next) => {
 
     let response = await review.save();
   } catch (e) {
-    res.render("error.hbs");
+    // res.render("error.hbs");
   }
 
   if (politician) {
@@ -49,6 +50,8 @@ const searchBy = async (req, res, next) => {
       area: currPoliArea.replace(/\b\w/g, l => l.toUpperCase()),
       year: "9"
     });
+
+    console.log(prevPolitician);
 
     let politicianImage = await getImage(politician.name);
     let politicianVideos = await getVideos(politician.name);

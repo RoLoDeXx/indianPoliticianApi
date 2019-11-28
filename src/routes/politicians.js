@@ -1,7 +1,7 @@
 const express = require("express");
 const getImage = require("../utils/getImage");
 const Politician = require("../models/politiciansModel");
-// const politicsData = require("../utils/data.json");
+const politicsData = require("../utils/data.json");
 
 const searchBy = require("../middlewares/searchBy");
 const search = require("../middlewares/search");
@@ -14,19 +14,19 @@ router.get("/", (req, res) => {
   res.render("home.hbs");
 });
 
-// router.get("/build", (req, res) => {
-//   politicsData.forEach(element => {
-//     const politicsEl = new Politician(element);
-//     politicsEl
-//       .save()
-//       .then(() => {
-//         console.log("db mai save ho gaye honge");
-//       })
-//       .catch(e => {
-//         console.log(e) + "something fucked up";
-//       });
-//   });
-// });
+router.get("/build", (req, res) => {
+  politicsData.forEach(element => {
+    const politicsEl = new Politician(element);
+    politicsEl
+      .save()
+      .then(() => {
+        console.log("db mai save ho gaye honge");
+      })
+      .catch(e => {
+        console.log(e) + "something fucked up";
+      });
+  });
+});
 
 router.get("/disclaimer", (req, res) => {
   res.render("disclaimer.hbs");
